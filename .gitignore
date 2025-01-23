@@ -1,0 +1,4 @@
+.env
+/public/media
+/vendor
+/node_modules
