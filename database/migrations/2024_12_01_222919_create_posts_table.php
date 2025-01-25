@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->text('description');
@@ -19,10 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->string('status');
             $table->timestamps();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
             $table->softDeletes();
-            $table->unsignedBigInteger('deleted_by')->nullable();
         });
     }
 

@@ -63,78 +63,11 @@
                         <span> @lang('attributes.cities') </span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('admin.areas.index') }}">
-                        <i class="uil-comment-image"></i>
-                        <span> @lang('attributes.areas') </span>
-                    </a>
-                </li>
+
                 <li>
                     <a href="{{ route('admin.categories.index') }}">
                         <i class="uil-puzzle-piece"></i>
                         <span> @lang('attributes.categories') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.brands.index') }}">
-                        <i class="uil-award"></i>
-                        <span> @lang('attributes.brands') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.offers.index') }}">
-                        <i class="uil-chart-line"></i>
-                        <span> @lang('attributes.offers') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.doctor_specializations.index') }}">
-                        <i class="uil-medkit"></i>
-                        <span> @lang('attributes.doctor_specializations') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.doctors.index') }}">
-                        <i class="uil-user"></i>
-                        <span> @lang('attributes.doctors') </span>
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="{{ route('admin.coupons.index') }}">
-                        <i class="uil-ticket"></i>
-                        <span> @lang('attributes.coupons') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.products.index') }}">
-                        <i class="uil-window-restore"></i>
-                        <span> @lang('attributes.products') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.model-types.index') }}">
-                        <i class="uil-lightbulb-alt"></i>
-                        <span> model types </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.model-type-data.index') }}">
-                        <i class="uil-server"></i>
-                        <span> model type data </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.package-offers.index') }}">
-                        <i class="uil-gift"></i>
-                        <span> @lang('attributes.package_offers') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.companies.index') }}">
-                        <i class="uil-store"></i>
-                        <span> @lang('attributes.companies') </span>
                     </a>
                 </li>
                 <li>
@@ -143,48 +76,20 @@
                         <span> @lang('attributes.blogs') </span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('admin.payment_types.index') }}">
-                        <i class="uil-dollar-alt"></i>
-                        <span> @lang('attributes.payment_types') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.pets_categories.index') }}">
-                        <i class="uil-coins"></i>
-                        <span> @lang('attributes.pets_categories') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.pets.index') }}">
-                        <i class="uil-flask"></i>
-                        <span> @lang('attributes.pets') </span>
-                    </a>
-                </li>
+
                 <li>
                     <a href="{{ route('admin.users.index') }}">
                         <i class="uil-users-alt"></i>
                         <span> @lang('attributes.users') </span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="{{ route('admin.roles.index') }}">
                         <i class="uil-keyhole-square"></i>
                         <span> @lang('attributes.roles') </span>
                     </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.services.index') }}">
-                        <i class="uil-sliders-v-alt"></i>
-                        <span> @lang('attributes.services') </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.reservations.index') }}">
-                        <i class="uil-sliders-v-alt"></i>
-                        <span> @lang('attributes.reservations') </span>
-                    </a>
-                </li>
+                </li> --}}
+
                 <li>
                     <a href="{{ route('admin.sliders.index') }}">
                         <i class="uil-sliders-v-alt"></i>

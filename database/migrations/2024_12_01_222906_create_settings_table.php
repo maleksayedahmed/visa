@@ -13,14 +13,17 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('value');
-            $table->string('status');
-            $table->timestamps();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
-            $table->softDeletes();
-            $table->unsignedBigInteger('deleted_by')->nullable();
+            $table->string('contact_us')->nullable();
+            $table->string('terms_and_condition')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('x')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->string('title')->nullable();
+            $table->string('email')->nullable();
+            $table->string('mobile_number')->nullable();
+            $table->string('about_us')->nullable();
+
         });
     }
 

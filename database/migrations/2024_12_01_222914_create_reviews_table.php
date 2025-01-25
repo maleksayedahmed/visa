@@ -13,15 +13,12 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['product', 'order', 'blog']);
-            $table->foreignId('review_message_id')->constrained('review_messages')->onDelete('cascade');
+            $table->string('title');
+            $table->string('status');
             $table->text('details');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
             $table->softDeletes();
-            $table->unsignedBigInteger('deleted_by')->nullable();
         });
     }
 

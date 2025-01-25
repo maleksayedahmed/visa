@@ -15,14 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('set null');
             $table->string('link')->nullable();
             $table->string('status');
             $table->timestamps();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->unsignedBigInteger('updated_by')->nullable();
             $table->softDeletes();
-            $table->unsignedBigInteger('deleted_by')->nullable();
         });
     }
 

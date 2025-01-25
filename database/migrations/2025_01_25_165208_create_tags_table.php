@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('areas', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->text('name')->nullable();
-            $table->unsignedBigInteger('city_id');
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->tinyInteger('status')->default(1);
+            $table->string('title');
+            $table->string('slug');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('areas');
+        Schema::dropIfExists('tags');
     }
 };

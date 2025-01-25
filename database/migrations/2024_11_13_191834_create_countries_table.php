@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
             $table->text('name');
-            $table->string('country_iso');
-            $table->string('currency_iso');
-            $table->string('currency_name');
-            $table->string('country_code');
+            $table->string('country_iso')->nullable();
+            $table->string('currency_iso')->nullable();
+            $table->string('currency_name')->nullable();
+            $table->string('country_code')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->timestamps();
             $table->softDeletes();

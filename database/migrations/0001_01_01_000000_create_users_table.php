@@ -18,16 +18,8 @@ return new class extends Migration
             $table->string('phone')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('token')->nullable();
-            $table->string('device_token')->nullable();
             $table->boolean('is_blocked')->default(0);
-            $table->boolean('is_activated')->default(0);
             $table->boolean('gender')->nullable();
-            $table->date('birth_date')->nullable();
-            $table->decimal('wallet', 10, 2)->default(0.00);
-
-            $table->integer('otp')->nullable();
-            // $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->unsignedBigInteger('deleted_by')->nullable();
