@@ -68,19 +68,7 @@
                                     </div>
                                 @endforeach
 
-                                <div class="mb-3 col-md-6">
-                                    <label for="product">{{ __('attributes.product') }}</label>
-                                    <select class="form-select @error('product') is-invalid @enderror" name="product_id" id="product" >
-                                        <option value="" disabled selected >{{ __('attributes.select_product') }}</option>
-                                        @foreach ($products as $day)
-                                        <option value="{{$day->id}}" {{$day->id == $slider->product_id ? 'selected' : ''}}  >{{$day->title}}</option>
 
-                                        @endforeach
-                                    </select>
-                                    @error('product')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
 
                                 <div class="mb-3 col-md-6">
                                     <label for="image">{{ __('attributes.image') }}</label>

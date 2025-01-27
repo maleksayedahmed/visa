@@ -47,37 +47,9 @@
                                         @enderror
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="role">@lang('attributes.role')</label>
-                                        <select name="role" id="role"
-                                            class="form-select @error('role') is-invalid @enderror">
-                                            <option value="" selected disabled>@lang('attributes.select_role')</option>
-                                            @foreach ($roles as $role)
-                                                <option value="{{ $role->name }}"
-                                                    {{ old('role', $user->role && $user->role->id) == $role->id ? 'selected' : '' }}>
-                                                    {{ $role->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('role')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
 
-                                    <div class="mb-3">
-                                        <label for="company_id">@lang('attributes.company')</label>
-                                        <select name="company_id" id="company_id"
-                                            class="form-select @error('company_id') is-invalid @enderror">
-                                            <option value="" selected disabled>@lang('attributes.select_company')</option>
-                                            @foreach ($companies as $company)
-                                                <option value="{{ $company->id }}"
-                                                    {{ old('company_id', $user->company && $user->company->id) == $company->id ? 'selected' : '' }}>
-                                                    {{ $company->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('company_id')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+
+
 
                                     <div class="mb-3">
                                         <label for="email">@lang('attributes.email')</label>
@@ -163,23 +135,6 @@
 
                                 </div>
 
-                                {{-- Address Section --}}
-                            <div id="addresses">
-                                <h4>@lang('attributes.addresses')</h4>
-
-                                @if ($user->addresses->count())
-                                    @foreach ($user->addresses as $address)
-                                        @include('template.admin.users.partials.address', ['index' => $loop->index, 'address' => $address])
-                                    @endforeach
-                                @else
-                                    {{-- @include('admin.users.partials.address', ['index' => 0, 'address' => null]) --}}
-                                @endif
-
-                            </div>
-                            <div class="form-group">
-                                <button type="button" style="margin-top: 10px" class="btn btn-success mb-3" id="add-address">@lang('attributes.add_address')</button>
-
-                            </div>
 
                                 @if ($user->id)
                                     <div class="text-end mb-0">
@@ -204,25 +159,9 @@
 
 @section('js')
 <script>
-    let addressIndex = {{ $user->addresses->count() ?: 1 }};
 
     $(document).ready(function () {
-        initializeAddresses(); // Initialize existing addresses
 
-        // Add a new address
-        $('#add-address').on('click', function () {
-            const newAddressHtml = `
-                @include('template.admin.users.partials.address', ['index' => '__INDEX__', 'address' => null])
-            `.replace(/__INDEX__/g, addressIndex);
-
-            $('#addresses').append(newAddressHtml);
-            addressIndex++;
-        });
-
-        // Remove an address
-        $(document).on('click', '.remove-address', function () {
-            $(this).closest('.address-item').remove();
-        });
 
         // Event: Fetch cities based on selected country
         $(document).on('change', '.country-dropdown', function () {
@@ -239,42 +178,8 @@
             }
         });
 
-        // Event: Fetch areas based on selected city
-        $(document).on('change', '.city-dropdown', function () {
-            const index = $(this).data('index');
-            const cityId = $(this).val();
-            const areaDropdown = $(`#addresses\\[${index}\\]\\[area_id\\]`);
 
-            areaDropdown.empty().append('<option value="">@lang('attributes.loading')</option>');
-
-            if (cityId) {
-                updateAreas(cityId, index);
-            }
-        });
     });
-
-    // Initialize existing addresses
-    function initializeAddresses() {
-    @foreach ($user->addresses as $index => $address)
-        const countryId = "{{ $address->country_id }}";
-        const cityId = "{{ $address->city_id }}";
-        const areaId = "{{ $address->area_id }}";
-
-        const cityDropdown = $(`#addresses\\[{{ $index }}\\]\\[city_id\\]`);
-        const areaDropdown = $(`#addresses\\[{{ $index }}\\]\\[area_id\\]`);
-
-        if (countryId) {
-            updateCities(countryId, {{ $index }}, cityDropdown, function () {
-                cityDropdown.val(cityId); // Select the city
-                if (cityId) {
-                    updateAreas(cityId, {{ $index }}, function () {
-                        areaDropdown.val(areaId); // Select the area
-                    });
-                }
-            });
-        }
-    @endforeach
-    }
 
 
 
@@ -299,25 +204,7 @@
         });
     }
 
-    // Update areas for a given city
-    function updateAreas(cityId, index, callback = null) {
-        const areaDropdown = $(`#addresses\\[${index}\\]\\[area_id\\]`);
-        $.ajax({
-            url: '{{ route('api.areas.index') }}', // Replace with your areas route
-            method: 'GET',
-            data: { city_id: cityId },
-            success: function (response) {
-                areaDropdown.empty().append('<option value="">@lang('attributes.select_area')</option>');
-                response.data.forEach(function (area) {
-                    areaDropdown.append(`<option value="${area.id}">${area.name}</option>`);
-                });
-                if (callback) callback(); // Call the callback, if provided
-            },
-            error: function () {
-                alert('@lang('attributes.error_loading_areas')');
-            }
-        });
-    }
+
 </script>
 
 

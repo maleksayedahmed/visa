@@ -312,5 +312,7 @@ return [
     'select_reservation_time' => 'Select Reservation Time',
     'reservation_date' => 'Reservation Date',
     'reservation_time' => 'Reservation Time',
+    'sliders' => 'Sliders',
+    'slider' => 'Slider',
 
 ];

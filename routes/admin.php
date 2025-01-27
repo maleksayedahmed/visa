@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\admin\DoctorController;
-use App\Http\Controllers\admin\ModelTypesDataController;
+use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\ModelTypesDataController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', 'AuthenticatedSessionController@create')->name('login');
@@ -32,15 +32,6 @@ Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 
         Route::get('/countries/{country}', 'getCountryCities')->name('cities.countries');
     });
 
-    Route::prefix('areas')->controller(\App\Http\Controllers\Admin\AreaController::class)->group(function () {
-        Route::get('/', 'index')->name('areas.index');
-        Route::get('/create', 'create')->name('areas.create');
-        Route::post('/store', 'store')->name('areas.store');
-        Route::get('/edit/{id}', 'edit')->name('areas.edit');
-        Route::post('/update/{id}', 'update')->name('areas.update');
-        Route::delete('/delete/{id}', 'destroy')->name('areas.delete');
-        Route::post('/change-status', 'changeStatus')->name('areas.status');
-    });
 
     Route::prefix('categories')->controller(\App\Http\Controllers\Admin\CategoryController::class)->group(function () {
         Route::get('/', 'index')->name('categories.index');
