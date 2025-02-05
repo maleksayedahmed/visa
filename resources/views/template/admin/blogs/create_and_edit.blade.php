@@ -1,6 +1,10 @@
 @extends('template.admin.layouts.master')
 @section('title', __('attributes.blogs'))
-
+@section('css')
+<link href="{{asset('assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/libs/quill/quill.bubble.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
+@endsection
 @section('content')
     <div class="content-page">
         <div class="content">
@@ -44,13 +48,17 @@
                                         @enderror
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="description">@lang('attributes.description')</label>
-                                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
-                                            placeholder="@lang('attributes.enter_description')">{{ old('description', $blog->description) }}</textarea>
-                                        @error('description')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="header-title mt-0 mb-1">Body</h4>
+                                                    <div id="snow-editor" style="height: 300px;">
+
+                                                    </div> <!-- end Snow-editor-->
+                                                </div>
+                                            </div> <!-- end card-->
+                                        </div> <!-- end col-->
                                     </div>
 
                                     <div class="mb-3">
@@ -103,4 +111,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+{{-- <script src="{{asset('assets/js/pages/form-advanced.init.js')}}"></script> --}}
+{{-- <script src="assets/libs/quill/quill.min.js"></script> --}}
+
+<script src="{{asset('assets/libs/quill/quill.min.js')}}"></script>
+<script src="{{asset('assets/js/pages/form-editor.init.js')}}"></script>
 @endsection

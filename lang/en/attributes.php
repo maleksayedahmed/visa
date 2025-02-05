@@ -314,5 +314,7 @@ return [
     'reservation_time' => 'Reservation Time',
     'sliders' => 'Sliders',
     'slider' => 'Slider',
+    'tags' => 'Tags',
+    'settings' => 'Settings',
 
 ];

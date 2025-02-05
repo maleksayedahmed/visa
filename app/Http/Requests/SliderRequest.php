@@ -29,10 +29,8 @@ class SliderRequest extends FormRequest
         return [
             'title' => 'required|array',
             'title.*' => 'required|string',
-            'product_id' => 'required|exists:products,id',
             'description' => 'required|array',
             'description.*' => 'required|string',
-            'link' => 'nullable|url',
             'image' => 'nullable|image',
             'status' => 'required|boolean',
 

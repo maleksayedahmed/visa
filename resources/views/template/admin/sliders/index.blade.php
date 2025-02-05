@@ -36,7 +36,6 @@
                                         <tr>
                                             <th>#</th>
                                             <th>@lang('attributes.title')</th>
-                                            <th>@lang('attributes.product')</th>
                                             <th>@lang('attributes.status')</th>
                                             <th>@lang('attributes.action')</th>
                                         </tr>
@@ -46,7 +45,6 @@
                                             <tr id="row-{{ $slider->id }}">
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $slider->title }}</td>
-                                                <td>{{ $slider->product->title }}</td>
                                                 <td><input id="checkbox-1" type="checkbox" name="status"
                                                         @if ($slider->status == 1) checked @endif
                                                         data-id="{{ $slider->id }}" data-bootstrap-switch

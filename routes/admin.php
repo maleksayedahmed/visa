@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ModelTypesDataController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', 'AuthenticatedSessionController@create')->name('login');
+Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class , 'create'])->name('admin.login');
 Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified', 'role:admin'], 'prefix' => 'admin'], function () {
 
     Route::prefix('setting')->controller(\App\Http\Controllers\Admin\HomeController::class)->group(function () {
