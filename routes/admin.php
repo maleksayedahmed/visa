@@ -190,6 +190,11 @@ Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 
         Route::resource('sliders', \App\Http\Controllers\Admin\SliderController::class);
         Route::post('sliders/change-status', [\App\Http\Controllers\Admin\SliderController::class, 'changeStatus'])->name('sliders.status');
 
+        Route::resource('tags', \App\Http\Controllers\Admin\SliderController::class);
+        Route::post('tags/change-status', [\App\Http\Controllers\Admin\SliderController::class, 'changeStatus'])->name('tags.status');
+
+        Route::resource('settings', \App\Http\Controllers\Admin\SettingController::class);
+        Route::post('settings/change-status', [\App\Http\Controllers\Admin\SettingController::class, 'changeStatus'])->name('settings.status');
 
 
     Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'dashBoard'])->name('dashboard');

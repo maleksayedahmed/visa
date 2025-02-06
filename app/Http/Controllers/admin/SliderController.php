@@ -42,9 +42,8 @@ class SliderController extends Controller
         // dd($id);
         $slider = $this->sliderService->find($id);
         // dd($slider);
-        $products = Product::where('status' , 1)->get();
 
-        return view('template.admin.sliders.create_and_edit', compact('slider', 'products' ));
+        return view('template.admin.sliders.create_and_edit', compact('slider' ));
     }
 
     public function update(SliderRequest $request, $id)

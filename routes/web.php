@@ -21,9 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
 
 Route::get('/visas', function () {
     return view('visas.index');

@@ -33,6 +33,7 @@ class BlogController extends Controller
 
     public function store(BlogRequest $request)
     {
+        // dd($request);
         $this->blogService->store($request->validated());
         return redirect()->route('admin.blogs.index')->with('success', __('messages.AddedMessage'));
     }

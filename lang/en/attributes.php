@@ -315,6 +315,7 @@ return [
     'sliders' => 'Sliders',
     'slider' => 'Slider',
     'tags' => 'Tags',
+    'slug' => 'Tags',
     'settings' => 'Settings',
 
 ];

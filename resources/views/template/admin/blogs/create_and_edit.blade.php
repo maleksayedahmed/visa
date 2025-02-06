@@ -50,10 +50,11 @@
 
                                     <div class="row">
                                         <div class="col-12">
+                                            <input type="hidden" name="description" id="body" value="{{ old('description', $blog->description ) }}">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h4 class="header-title mt-0 mb-1">Body</h4>
-                                                    <div id="snow-editor" style="height: 300px;">
+                                                    <div id="visa-editor" style="height: 300px;">
 
                                                     </div> <!-- end Snow-editor-->
                                                 </div>
@@ -119,4 +120,40 @@
 
 <script src="{{asset('assets/libs/quill/quill.min.js')}}"></script>
 <script src="{{asset('assets/js/pages/form-editor.init.js')}}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Quill editor
+        var quill = new Quill('#visa-editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ list: 'ordered' }, { list: 'bullet' }],
+                    [{ color: [] }, { background: [] }],
+                    ['link', 'image']
+                ]
+            }
+        });
+
+        // Get hidden input field
+        var bodyInput = document.getElementById('body');
+
+        // Set initial content in Quill from hidden input
+        if (bodyInput.value.trim() !== '') {
+            quill.root.innerHTML = bodyInput.value;
+        }
+
+        // Listen for text changes and update hidden input
+        quill.on('text-change', function () {
+            bodyInput.value = quill.root.innerHTML;
+        });
+
+        // Ensure hidden input is updated on form submit
+        document.querySelector('form').addEventListener('submit', function () {
+            bodyInput.value = quill.root.innerHTML;
+        });
+    });
+    </script>
+
 @endsection

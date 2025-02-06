@@ -14,7 +14,7 @@ class Category extends Model implements HasMedia
     use SoftDeletes, HasTranslations, InteractsWithMedia;
 
     protected $fillable = ['name',	'description'
-    	,'created_by'	,'updated_by',	'deleted_by' , 'status'];
+    	,'created_by'	,'updated_by',	'deleted_by' , 'slug' , 'status'];
 
     public $translatable = ['name' ,'description'];
 

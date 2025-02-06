@@ -77,6 +77,16 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="slug">@lang('attributes.slug')</label>
+                                        <input type="text" class="form-control" name="slug"
+                                            id="slug" placeholder="@lang('attributes.slug')"
+                                            value="{{ old('slug', $item->slug) }}">
+                                        @error('slug')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
 
                                 <div class="row">

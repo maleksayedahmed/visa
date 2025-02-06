@@ -97,13 +97,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.sliders.index') }}">
+                    <a href="{{ route('admin.tags.index') }}">
                         <i class="uil-comment-plus"></i>
                         <span> @lang('attributes.tags') </span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.sliders.index') }}">
+                    <a href="{{ route('admin.settings.index') }}">
                         <i class="uil-bright"></i>
                         <span> @lang('attributes.settings') </span>
                     </a>
