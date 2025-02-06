@@ -270,7 +270,7 @@
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="feature-item text-center p-4">
                     <div class="feature-icon p-3 mb-4">
-                        <i class="fas fa-atlas') }} fa-4x text-primary"></i>
+                        <i class="fas fa-atlas fa-4x text-primary"></i>
                     </div>
                     <div class="feature-content d-flex flex-column">
                         <h5 class="mb-3">Faster Processing</h5>

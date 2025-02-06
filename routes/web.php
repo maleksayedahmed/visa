@@ -1,19 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('template.user.main.homepage');
-});
+Route::get('/' , [HomeController::class , 'index']);
 Route::get('/logout', function () {
     return view('template.admin.auth.logout');
 });
 
-Route::get('/dashboard', function () {
-    return view('template.admin.dashboard');
-})->middleware(['auth', 'verified' ,'role:admin'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class , 'index'])->middleware(['auth', 'verified' ,'role:admin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

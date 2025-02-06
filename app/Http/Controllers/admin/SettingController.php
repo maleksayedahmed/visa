@@ -19,7 +19,8 @@ class SettingController extends Controller
     }
     public function index()
     {
-        $setting = Setting::first();
+        $setting = Setting::firstOrCreate([]);
+
         return view('template.admin.settings.create_and_edit', compact('setting'));
     }
 

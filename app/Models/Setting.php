@@ -25,5 +25,5 @@ class Setting extends Model
     ];
 
     public  $timestamps = false;
-    protected $translatable = ['contact_us' , 'terms_and_condition' , 'about_us']
+    protected $translatable = ['contact_us' , 'terms_and_condition' , 'about_us'];
 }

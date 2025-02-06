@@ -47,7 +47,7 @@
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                                 <span class="text-primary">Have any questions?</span>
-                                <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">Free: +0123 456 7890</span>
+                                <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">Free: <a href="tel:{{getSetting()->mobile_number}}">  {{getSetting()->mobile_number}}</a></span>
                             </div>
                         </div>
                     </div>
