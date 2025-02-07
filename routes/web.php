@@ -10,7 +10,7 @@ Route::get('/logout', function () {
     return view('template.admin.auth.logout');
 });
 
-Route::get('/dashboard', [HomeController::class , 'index'])->middleware(['auth', 'verified' ,'role:admin'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class , 'dashBoard'])->middleware(['auth', 'verified' ,'role:admin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
