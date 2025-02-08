@@ -111,9 +111,30 @@
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="customFile" name="photo"
                                                 accept="image/*">
-                                            <label class="custom-file-label" for="customFile">@lang('attributes.choose_country_image')</label>
+                                            <label class="custom-file-label" for="customFile">@lang('attributes.choose_image')</label>
                                         </div>
                                         @error('photo')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3 col-md-12">
+                                        @if ($item->id)
+                                            <img id="image-preview" src="{{ $item->getFirstMediaUrl('country_cover') }}"
+                                                alt="Current Image"
+                                                style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                                        @else
+                                            <img id="image-preview" src="" alt="Image Preview"
+                                                style="display: none; max-width: 100%; height: auto; margin-bottom: 10px;">
+                                        @endif
+                                        <!-- <label for="customFile">Custom File</label> -->
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="customFile" name="country_cover"
+                                                accept="image/*">
+                                            <label class="custom-file-label" for="customFile">@lang('attributes.choose_image_cover')</label>
+                                        </div>
+                                        @error('country_cover')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>

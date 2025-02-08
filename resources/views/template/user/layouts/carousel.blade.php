@@ -1,16 +1,23 @@
 <!-- Carousel Start -->
+@if (isset($sliders))
+
 <div class="carousel-header">
     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-        
 
 
-            @if (isset($sliders))
+
             <ol class="carousel-indicators">
-                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
-                <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+
+                @foreach ($sliders as $item)
+                <li data-bs-target="#carouselId" data-bs-slide-to="{{$loop->iteration-1 }}" class="{{$loop->iteration-1 == 0 ? 'active' : ''}}"></li>
+
+
+                @endforeach
+
+
             </ol>
             <div class="carousel-inner" role="listbox">
-                
+
             @foreach ($sliders as $item)
 
             <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}">
@@ -20,7 +27,7 @@
                         {{-- <h4 class="text-white text-uppercase fw-bold mb-3 mb-md-4 wow fadeInUp" data-wow-delay="0.1s">Solution For All Type Of Visas</h4> --}}
                         <h1 class="display-1 text-capitalize text-white mb-3 mb-md-4 wow fadeInUp" data-wow-delay="0.3s">{{$item->title}}</h1>
                         <p class="text-white mb-4 mb-md-5 fs-5 wow fadeInUp" data-wow-delay="0.5s">{{$item->description}}</p>
-                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="#">More Details</a>
+                        {{-- <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="#">More Details</a> --}}
                     </div>
                 </div>
             </div>
@@ -39,7 +46,6 @@
 
 
 
-            @endif
 
 
 
@@ -70,3 +76,4 @@
     </div>
 </div>
 <!-- Carousel End -->
+@endif
