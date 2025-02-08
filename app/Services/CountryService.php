@@ -31,6 +31,9 @@ class CountryService
         if (isset($data['photo']) && $data['photo']) {
             $country->addMediaFromRequest('photo')->toMediaCollection('country');
         }
+        if (isset($data['country_cover']) && $data['country_cover']) {
+            $country->addMediaFromRequest('country_cover')->toMediaCollection('country_cover');
+        }
         return $country;
     }
     public function updateAnyColumn($data, $id)
@@ -46,6 +49,11 @@ class CountryService
         if (isset($data['photo']) && $data['photo']) {
             $country->clearMediaCollection('country');
             $country->addMediaFromRequest('photo')->toMediaCollection('country');
+        }
+
+        if (isset($data['country_cover']) && $data['country_cover']) {
+            $country->clearMediaCollection('country_cover');
+            $country->addMediaFromRequest('country_cover')->toMediaCollection('country_cover');
         }
     }
     public function destroy($id)
