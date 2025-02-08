@@ -46,7 +46,7 @@
 
 
 
-        @include('template.user.layouts.about')
+        {{-- @include('template.user.layouts.about') --}}
 
 
         @yield('content')
