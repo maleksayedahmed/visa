@@ -8,7 +8,7 @@ use App\Models\Slider;
 class HomeController extends Controller
 {
     public function dashBoard(){
-        // return view('template.admin.dashboard');
+        return view('template.admin.dashboard');
     }
 
     public function index(){
