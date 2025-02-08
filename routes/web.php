@@ -37,6 +37,19 @@ Route::get('/training', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+
+Route::get('/blogs', function () {
+    return view('template.user.blogs.blogs');
+})->name('blogs.index');
+
+
+
+Route::get('/blog', function () {
+    return view('template.user.blogs.blog');
+
+})->name('blog.index');
+
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
 require __DIR__.'/api.php';

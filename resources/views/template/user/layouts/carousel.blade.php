@@ -1,13 +1,16 @@
 <!-- Carousel Start -->
 <div class="carousel-header">
     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
+        
 
 
+            @if (isset($sliders))
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                
             @foreach ($sliders as $item)
 
             <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}">
@@ -22,6 +25,22 @@
                 </div>
             </div>
             @endforeach
+
+
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-secondary wow fadeInLeft" data-wow-delay="0.2s" aria-hidden="false"></span>
+                <span class="visually-hidden-focusable">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-secondary wow fadeInRight" data-wow-delay="0.2s" aria-hidden="false"></span>
+                <span class="visually-hidden-focusable">Next</span>
+            </button>
+
+
+
+            @endif
+
 
 
             {{-- <div class="carousel-item active">
@@ -47,14 +66,7 @@
                 </div>
             </div>
         </div> --}}
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-secondary wow fadeInLeft" data-wow-delay="0.2s" aria-hidden="false"></span>
-            <span class="visually-hidden-focusable">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-secondary wow fadeInRight" data-wow-delay="0.2s" aria-hidden="false"></span>
-            <span class="visually-hidden-focusable">Next</span>
-        </button>
+
     </div>
 </div>
 <!-- Carousel End -->
