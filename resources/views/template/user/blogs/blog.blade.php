@@ -22,10 +22,10 @@
             @endif
 
             <!-- Loop through subheadings if available -->
-            @foreach($blog->subheadings as $subheading)
+            {{-- @foreach($blog->subheadings as $subheading)
                 <h2 class="blog-subtitle">{{ $subheading->title }}</h2>
                 <p>{{ $subheading->content }}</p>
-            @endforeach
+            @endforeach --}}
         </div>
     </div>
 @endsection

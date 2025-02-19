@@ -20,7 +20,7 @@ class HomeController extends Controller
         $countries = Country::where('status', 1)->get();
         // dd($sliders[0]->getFirstMediaUrl('slider'));
         return view('template.user.main.homepage' , compact('sliders' , 'categories' , 'countries'));
-
+        //  return view('template.user.main.homepage' , compact( 'categories' , 'countries'));
     }
 
     public function posts($country = null , $category = null){
