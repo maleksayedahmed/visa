@@ -11,9 +11,13 @@ class CategoryController extends Controller
 {
     public function index($id)
     {
-        $mycategory = Category::where('id',$id)->first();
-        $blogs = Blog::where('category_id', $id)->get();
-        return view('template.user.category.index', compact('mycategory','blogs'));
+        $mycategory = Category::where('id', $id)->where('status', 1)->first();
+        if (!$mycategory) {
+            return redirect('/')->with('error', 'Category not found or inactive.');
+        }
+
+        $blogs = Blog::where('category_id', $id)->where('status', 1)->get();
+        return view('template.user.category.index', compact('mycategory', 'blogs'));
     }
     // public function show($id)
     // {
@@ -22,5 +26,14 @@ class CategoryController extends Controller
     //     return view('template.user.countries.show', compact('cities','mycountry'));
     // }
 
+    // public function index($id)
+    // {
+    //     $mycategory = Category::where('id', $id)->where('status', 'active')->first();
+    //     if (!$mycategory) {
+    //         return redirect()->back()->with('error', 'Category not found or inactive.');
+    //     }
 
+    //     $blogs = Blog::where('category_id', $id)->where('status', 'active')->get();
+    //     return view('template.user.category.index', compact('mycategory', 'blogs'));
+    // }
 }
