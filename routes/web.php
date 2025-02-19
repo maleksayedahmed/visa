@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\CountryController;
+use App\Http\Controllers\User\CategoryController;
 
 
 
@@ -60,6 +61,7 @@ Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.index');
 Route::get('/countries', [CountryController::class, 'index'])->name('country.index');
 Route::get('/countries/{id}', [CountryController::class, 'show'])->name('country.show');
+Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category.index');
 
 
 require __DIR__.'/auth.php';

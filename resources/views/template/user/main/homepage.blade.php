@@ -95,13 +95,13 @@
                                         <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
                                             <a href="#" class="h4 text-white mb-0">{{$item->name}}</a>
                                         </div>
-                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
+                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="/category/{{$item->id}}">Explore More</a>
                                     </div>
                                     <div class="service-content pb-4">
                                         <a href="#"><h4 class="text-white mb-4 py-3">{{$item->name}}</h4></a>
                                         <div class="px-4">
                                             <p class="mb-4">{{$item->description}}</p>
-                                            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="#">Explore More</a>
+                                            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="/category/{{$item->id}}">Explore More</a>
                                         </div>
                                     </div>
                                 </div>
