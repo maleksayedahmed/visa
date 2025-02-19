@@ -205,7 +205,7 @@
                         <img src="{{ $item->getFirstMediaUrl('country') }}" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div class="country-name">
-                        <a href="#" class="text-white fs-4">{{$item->name}}</a>
+                        <a href="/countries/{{$item->id}}" class="text-white fs-4">{{$item->name}}</a>
                     </div>
                 </div>
             </div>
@@ -215,7 +215,7 @@
 
 
             <div class="col-12">
-                <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="#">More Countries</a>
+                <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="/countries">More Countries</a>
             </div>
         </div>
     </div>

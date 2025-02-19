@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\BlogController;
+use App\Http\Controllers\User\CountryController;
+
 
 
 Route::get('/' , [HomeController::class , 'index']);
@@ -56,6 +58,9 @@ Route::get('/contact', function () {
 
 Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
 Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.index');
+Route::get('/countries', [CountryController::class, 'index'])->name('country.index');
+Route::get('/countries/{id}', [CountryController::class, 'show'])->name('country.show');
+
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
