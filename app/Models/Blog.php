@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Blog extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = 'posts';
+
     protected $fillable = [
         'title',
         'description',
@@ -19,6 +21,9 @@ class Blog extends Model
         'created_by',
         'updated_by',
         'deleted_by',
+        'image',         // Add the image field
+        'image_caption', // Add the image_caption field
+        'content',       // Add content field if not already present
     ];
 
     protected $casts = [
@@ -34,6 +39,11 @@ class Blog extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function subheadings()
+    {
+        return $this->hasMany(Subheading::class); // Define relationship with Subheading model
     }
 
     // Auditing relationships (optional)

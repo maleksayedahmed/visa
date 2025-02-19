@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\BlogController;
+
 
 Route::get('/' , [HomeController::class , 'index']);
 Route::get('/logout', function () {
@@ -41,16 +43,19 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
-Route::get('/blogs', function () {
-    return view('template.user.blogs.blogs');
-})->name('blogs.index');
+// Route::get('/blogs', function () {
+//     return view('template.user.blogs.blogs');
+// })->name('blogs.index');
 
 
 
-Route::get('/blog', function () {
-    return view('template.user.blogs.blog');
+// Route::get('/blog', function () {
+//     return view('template.user.blogs.blog');
 
-})->name('blog.index');
+// })->name('blog.index');
+
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.index');
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
