@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\CountryController;
 use App\Http\Controllers\User\CategoryController;
+use App\Http\Controllers\User\VisaController;
+
 
 
 
@@ -62,6 +64,9 @@ Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.index');
 Route::get('/countries', [CountryController::class, 'index'])->name('country.index');
 Route::get('/countries/{id}', [CountryController::class, 'show'])->name('country.show');
 Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category.index');
+
+Route::get('/visas', [VisaController::class, 'index'])->name('visas.index');
+Route::get('/visas/{id}', [VisaController::class, 'show'])->name('visas.show');
 
 
 require __DIR__.'/auth.php';
