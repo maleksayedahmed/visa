@@ -41,7 +41,7 @@ class Blog extends Model
         return $this->belongsTo(User::class);
     }
 
-  
+
 
     // Auditing relationships (optional)
     public function creator()
@@ -58,4 +58,10 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by');
     }
+
+    public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
+
 }

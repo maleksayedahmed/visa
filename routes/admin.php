@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ModelTypesDataController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CommentController;
 
 Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class , 'create'])->name('admin.login');
 Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified', 'role:admin'], 'prefix' => 'admin'], function () {
@@ -83,6 +84,12 @@ Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 
 
 
     // Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'dashBoard'])->name('dashboard');
+
+
+    Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
+        Route::resource('comments', CommentController::class);
+        Route::post('/comments/change-status', [CommentController::class, 'changeStatus'])->name('admin.comments.changeStatus');
+    });
 
 
 
