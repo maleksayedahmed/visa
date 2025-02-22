@@ -109,6 +109,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.comments.index') }}">
+                        <i class="uil-comment-plus"></i>
+                        <span> @lang('attributes.comments') </span>
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('admin.settings.index') }}">
                         <i class="uil-bright"></i>
                         <span> @lang('attributes.settings') </span>

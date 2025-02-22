@@ -26,24 +26,32 @@ class CommentController extends Controller
 
     public function create()
     {
-        $comment = new Comment();
+        $item = new Comment();
         $blogs = Blog::all();
         $users = User::all();
-        return view('template.admin.comments.create_and_edit', compact('comment', 'blogs', 'users'));
+        return view('template.admin.comments.create_and_edit', compact('item', 'blogs', 'users'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'blog_id' => 'required|exists:posts,id',
-            'user_id' => 'required|exists:users,id',
-            'content' => 'required|string|max:500',
+            'blog' => 'required|exists:posts,id', // Matches the input name in the form
+            'user' => 'required|exists:users,id', // Matches the input name in the form
+            'comment' => 'required|string|max:500', // Matches the textarea name in the form
             'status' => 'boolean'
         ]);
 
-        $this->commentService->store($request->all());
+        $data = [
+            'blog_id' => $request->input('blog'),
+            'user_id' => $request->input('user'),
+            'content' => $request->input('comment'),
+            'status' => $request->input('status', 0),
+        ];
+
+        $this->commentService->store($data);
         return redirect()->route('admin.comments.index')->with('success', __('messages.AddedMessage'));
     }
+
 
     public function edit($id)
     {

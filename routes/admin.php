@@ -86,9 +86,14 @@ Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 
     // Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'dashBoard'])->name('dashboard');
 
 
-    Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-        Route::resource('comments', CommentController::class);
-        Route::post('/comments/change-status', [CommentController::class, 'changeStatus'])->name('admin.comments.changeStatus');
+    Route::prefix('comments')->controller(\App\Http\Controllers\Admin\CommentController::class)->group(function () {
+        Route::get('/', 'index')->name('comments.index');
+        Route::get('/create', 'create')->name('comments.create');
+        Route::post('/store', 'store')->name('comments.store');
+        Route::get('/edit/{id}', 'edit')->name('comments.edit');
+        Route::post('/update/{id}', 'update')->name('comments.update');
+        Route::delete('/delete/{id}', 'destroy')->name('comments.delete');
+        Route::post('/change-status', 'changeStatus')->name('comments.status');
     });
 
 
