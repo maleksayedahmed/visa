@@ -31,6 +31,13 @@ class VisaController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'slug' => 'required|string',  // Ensure slug is required
+            'status' => 'boolean',
+        ]);
+
         $this->visaService->store($request->all());
         return redirect()->route('admin.visas.index')->with('success', __('messages.AddedMessage'));
     }
@@ -44,6 +51,12 @@ class VisaController extends Controller
 
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'slug' => 'required|string',  // Ensure slug is required
+            'status' => 'boolean',
+        ]);
         $this->visaService->update($request->all(), $id);
         return redirect()->route('admin.visas.index')->with('success', __('messages.UpdatedMessage'));
     }

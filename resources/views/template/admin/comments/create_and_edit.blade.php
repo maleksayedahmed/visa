@@ -77,14 +77,13 @@
                                     <div class="mb-3 col-md-12">
                                         <label for="comment">@lang('attributes.comment')</label>
                                         <textarea cols="30" rows="10" class="form-control" name="comment" id="comment"
-                                            placeholder="@lang('attributes.comment')"
-                                            {{-- value="{{ old('name[en]', $item->getTranslation('name', 'en')) }}" --}}
-                                            ></textarea>
+                                            placeholder="@lang('attributes.comment')">{{ old('comment', $item->content ?? '') }}</textarea>
 
                                         @error('comment')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+
 
                                 </div>
 

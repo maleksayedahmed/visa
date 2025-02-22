@@ -55,16 +55,18 @@ class CommentController extends Controller
 
     public function edit($id)
     {
-        $comment = $this->commentService->find($id);
+        $item = $this->commentService->find($id);
         $blogs = Blog::all();
         $users = User::all();
-        return view('template.admin.comments.create_and_edit', compact('comment', 'blogs', 'users'));
+        return view('template.admin.comments.create_and_edit', compact('item', 'blogs', 'users'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'content' => 'required|string|max:500',
+            'blog' => 'required|exists:posts,id', // Matches the input name in the form
+            'user' => 'required|exists:users,id', // Matches the input name in the form
+            'comment' => 'required|string|max:500', // Matches the textarea name in the form
             'status' => 'boolean'
         ]);
 
