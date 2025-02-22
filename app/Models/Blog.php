@@ -41,10 +41,7 @@ class Blog extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function subheadings()
-    {
-        return $this->hasMany(Subheading::class); // Define relationship with Subheading model
-    }
+  
 
     // Auditing relationships (optional)
     public function creator()
