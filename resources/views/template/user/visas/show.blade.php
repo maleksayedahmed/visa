@@ -45,7 +45,7 @@
 
 
                     <div class="col-12">
-                        <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="/visas" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">More Visas</a>
+                        <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="https://wa.me/+970567067187" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">Buy now!</a>
                     </div>
                 </div>
             </div>

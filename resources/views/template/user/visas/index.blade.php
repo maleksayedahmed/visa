@@ -5,7 +5,7 @@
     <div class="cards-container">
         @foreach ($visas as $visa)
             <div class="card">
-                <img src="{{ asset('assets/images/blog-img.png') }}" class="card-img-top" alt="...">
+                <img src="{{ asset('assets/images/breadcrumb.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     {{-- <p class="publish-date">Published on: {{ $visa->created_at->format('F j, Y') }}</p> --}}
                     <h4 class="card-title">{{ $visa->name }}</h4>
