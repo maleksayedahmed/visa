@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\City;
+use App\Models\Country;
 use App\Models\Visa;
 use Illuminate\Http\Request;
 use App\Services\VisaService;
@@ -25,18 +25,18 @@ class VisaController extends Controller
 
     public function create(Visa $item)
     {
-        $cities = City::where('status',1)->get();
-        return view('template.admin.visas.create_and_edit' ,compact('item' , 'cities') );
+        $countries = Country::where('status',1)->get();
+        return view('template.admin.visas.create_and_edit' ,compact('item' , 'countries') );
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'description' => 'required|string',
-            'slug' => 'required|string',  // Ensure slug is required
-            'status' => 'boolean',
-        ]);
+        // $request->validate([
+        //     'name' => 'required|string',
+        //     'description' => 'required|string',
+        //     'slug' => 'required|string',  // Ensure slug is required
+        //     'status' => 'boolean',
+        // ]);
 
         $this->visaService->store($request->all());
         return redirect()->route('admin.visas.index')->with('success', __('messages.AddedMessage'));
@@ -45,17 +45,18 @@ class VisaController extends Controller
     public function edit(string $id)
     {
         $item = $this->visaService->find($id);
-        $cities = City::get();
-        return view('template.admin.visas.create_and_edit' , compact('item' , 'cities') );
+        $countries = Country::get();
+        return view('template.admin.visas.create_and_edit' , compact('item' , 'countries') );
     }
 
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required|string',
-            'description' => 'required|string',
+            'name' => 'required',
+            'description' => 'required',
             'slug' => 'required|string',  // Ensure slug is required
             'status' => 'boolean',
+            'cost' => 'required|numeric',
         ]);
         $this->visaService->update($request->all(), $id);
         return redirect()->route('admin.visas.index')->with('success', __('messages.UpdatedMessage'));

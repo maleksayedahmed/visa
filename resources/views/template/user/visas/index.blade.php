@@ -8,7 +8,8 @@
                 <img src="{{ asset('assets/images/blog-img.png') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     {{-- <p class="publish-date">Published on: {{ $visa->created_at->format('F j, Y') }}</p> --}}
-                    <h5 class="card-title">{{ $visa->name }}</h5>
+                    <h4 class="card-title">{{ $visa->name }}</h4>
+                    <h5 class="card-title">{{ $visa->visa_type }}</h5>
                     <p class="card-text">{{ Str::limit(strip_tags($visa->description), 100) }}</p>
                     <a href="{{ route('visas.show', $visa->id) }}" class="btn btn-primary">See details</a>
                 </div>

@@ -36,6 +36,8 @@
                                         <tr>
                                             <th>#</th>
                                             <th>@lang('attributes.name')</th>
+                                            <th>@lang('attributes.country')</th>
+                                            <th>@lang('attributes.visa_type')</th>
                                             <th>@lang('attributes.description')</th>
                                             <th>@lang('attributes.status')</th>
                                             <th>@lang('attributes.action')</th>
@@ -47,6 +49,8 @@
                                             <tr id="row-{{ $visa->id }}">
                                                 <td>{{ $loop->iteration ?? '' }}</td>
                                                 <td>{{ $visa->name ?? '' }}</td>
+                                                <td>{{ $visa->country->name ?? '' }}</td>
+                                                <td>{{ $visa->visa_type ?? '' }}</td>
                                                 <td>{{ $visa->description ?? '' }}</td>
                                                 <td><input id="checkbox-1" type="checkbox" name="status"
                                                         @if ($visa->status == 1) checked @endif

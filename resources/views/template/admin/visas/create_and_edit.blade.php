@@ -57,13 +57,32 @@
                                         @enderror
                                     </div>
                                 </div>
-
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <label for="visa_type[en]">@lang('attributes.visa_type_en')</label>
+                                        <input type="text" class="form-control" name="visa_type[en]" id="visa_type[en]"
+                                            placeholder="@lang('attributes.visa_type_en')"
+                                            value="{{ old('visa_type[en]', $item->getTranslation('visa_type', 'en')) }}">
+                                        @error('visa_type[en]')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                        <label for="visa_type[ar]">@lang('attributes.visa_type_ar')</label>
+                                        <input type="text" class="form-control" name="visa_type[ar]" id="visa_type[ar]"
+                                            placeholder="@lang('attributes.visa_type_ar')"
+                                            value="{{ old('visa_type[ar]', $item->getTranslation('visa_type', 'ar')) }}">
+                                        @error('visa_type[ar]')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
                                         <label for="description[en]">@lang('attributes.description_en')</label>
                                         <input type="text" class="form-control" name="description[en]"
                                             id="description[en]" placeholder="@lang('attributes.description_en')"
-                                            value="{{ old('name[en]', $item->getTranslation('name', 'en')) }}">
+                                            value="{{ old('description[en]', $item->getTranslation('description', 'en')) }}">
                                         @error('description[en]')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -72,8 +91,35 @@
                                         <label for="description[ar]">@lang('attributes.description_ar')</label>
                                         <input type="text" class="form-control" name="description[ar]"
                                             id="description[ar]" placeholder="@lang('attributes.description_ar')"
-                                            value="{{ old('name[ar]', $item->getTranslation('name', 'ar')) }}">
+                                            value="{{ old('description[ar]', $item->getTranslation('description', 'ar')) }}">
                                         @error('description[ar]')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="country">@lang('attributes.country')</label>
+                                        <select class="form-control" name="country_id" id="country">
+                                            <option value="" disabled selected>@lang('attributes.select_country')</option>
+                                            @foreach($countries as $country)
+                                                <option value="{{ $country->id }}"
+                                                        {{ old('country_id', $item->country_id) == $country->id ? 'selected' : '' }}>
+                                                    {{ $country->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('country_id')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="cost">@lang('attributes.cost')</label>
+                                        <input type="text" class="form-control" name="cost"
+                                            id="cost" placeholder="@lang('attributes.cost')"
+                                            value="{{ old('cost', $item->cost) }}">
+                                        @error('cost')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -87,7 +133,9 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+
                                 </div>
+
 
                                 <div class="row">
                                     <div class="mb-3 col-md-12">
@@ -109,6 +157,7 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+
                                 </div>
                                 <div class="mb-3 col-md-6">
                                     <div class="checkbox checkbox-success">

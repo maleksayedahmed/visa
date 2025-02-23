@@ -10,13 +10,26 @@ use Spatie\Translatable\HasTranslations;
 
 class Visa extends Model implements HasMedia
 {
-    use  HasTranslations, InteractsWithMedia;
+    use HasTranslations, InteractsWithMedia, SoftDeletes;
 
-    // protected $table = 'visas';
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'country_id',
+        'visa_type',
+        'cost',
+        'status',
+        'created_by',
+        'updated_by',
+        'deleted_by'
+    ];
 
-    protected $fillable = ['name',	'description'
-    	,'created_by'	,'updated_by',	'deleted_by' , 'slug' , 'status'];
+    public $translatable = ['name', 'description','visa_type' ];
 
-    public $translatable = ['name' ,'description'];
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }
