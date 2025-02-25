@@ -32,4 +32,10 @@ class Visa extends Model implements HasMedia
     {
         return $this->belongsTo(Country::class);
     }
+
+    public function visaType()
+{
+    return $this->belongsTo(VisaType::class);
+}
+
 }

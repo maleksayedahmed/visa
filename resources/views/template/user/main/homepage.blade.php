@@ -101,7 +101,7 @@
                                         <a href="#"><h4 class="text-white mb-4 py-3">{{$item->name}}</h4></a>
                                         <div class="px-4">
                                             <p class="mb-4">{{$item->description}}</p>
-                                            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="#">Explore More</a>
+                                            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="/category/{{$item->id}}">Explore More</a>
                                         </div>
                                     </div>
                                 </div>

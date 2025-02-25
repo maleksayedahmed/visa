@@ -96,6 +96,17 @@ Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 
         Route::post('/change-status', 'changeStatus')->name('comments.status');
     });
 
+    Route::prefix('visatypes')->controller(\App\Http\Controllers\Admin\VisaTypeController::class)->group(function () {
+        Route::get('/', 'index')->name('visatypes.index');
+        Route::get('/create', 'create')->name('visatypes.create');
+        Route::post('/store', 'store')->name('visatypes.store');
+        Route::get('/edit/{id}', 'edit')->name('visatypes.edit');
+        Route::post('/update/{id}', 'update')->name('visatypes.update');
+        Route::delete('/delete/{id}', 'destroy')->name('visatypes.delete');
+        Route::post('/change-status', 'changeStatus')->name('visatypes.status');
+    });
+
+
 
 
 });

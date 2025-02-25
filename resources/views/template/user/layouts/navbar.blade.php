@@ -12,10 +12,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
-                <a href="{{ url('/') }}" class="nav-item nav-link active">Home</a>
-                <a href="{{ url('visas') }}" class="nav-item nav-link">Visas</a>
-                <a href="{{ url('blogs') }}" class="nav-item nav-link">Blogs</a>
-                <a href="{{ url('service') }}" class="nav-item nav-link">Service</a>
+                <a href="{{ url('/') }}" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                <a href="{{ url('visas') }}" class="nav-item nav-link {{ Request::is('visas') ? 'active' : '' }}">Visas</a>
+                <a href="{{ url('blogs') }}" class="nav-item nav-link {{ Request::is('blogs') ? 'active' : '' }}">Blogs</a>
+                <a href="{{ url('service') }}" class="nav-item nav-link {{ Request::is('service') ? 'active' : '' }}">Service</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link" data-bs-toggle="dropdown"><span class="dropdown-toggle">Pages</span></a>
                     <div class="dropdown-menu m-0">
