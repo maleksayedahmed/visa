@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Blog;
-use App\Models\User;
 use App\Services\CommentService;
 use Illuminate\Http\Request;
 
@@ -28,25 +27,26 @@ class CommentController extends Controller
     {
         $item = new Comment();
         $blogs = Blog::all();
-        $users = User::all();
-        return view('template.admin.comments.create_and_edit', compact('item', 'blogs', 'users'));
+        return view('template.admin.comments.create_and_edit', compact('item', 'blogs'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'blog' => 'required|exists:posts,id', // Matches the input name in the form
-            'user' => 'required|exists:users,id', // Matches the input name in the form
-            'comment' => 'required|string|max:500', // Matches the textarea name in the form
+            'blog' => 'required|exists:posts,id',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'content' => 'required|string',
             'status' => 'boolean'
         ]);
 
-        $data = [
-            'blog_id' => $request->input('blog'),
-            'user_id' => $request->input('user'),
-            'content' => $request->input('comment'),
-            'status' => $request->input('status', 0),
-        ];
+            $data = [
+                'blog_id' => $request->input('blog'),
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'content' => $request->input('content'),
+                'status' => $request->input('status', 0),
+            ];
 
         $this->commentService->store($data);
         return redirect()->route('admin.comments.index')->with('success', __('messages.AddedMessage'));
@@ -57,20 +57,29 @@ class CommentController extends Controller
     {
         $item = $this->commentService->find($id);
         $blogs = Blog::all();
-        $users = User::all();
-        return view('template.admin.comments.create_and_edit', compact('item', 'blogs', 'users'));
+        return view('template.admin.comments.create_and_edit', compact('item', 'blogs'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'blog' => 'required|exists:posts,id', // Matches the input name in the form
-            'user' => 'required|exists:users,id', // Matches the input name in the form
-            'comment' => 'required|string|max:500', // Matches the textarea name in the form
+            'blog' => 'required|exists:posts,id',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'content' => 'required|string',
             'status' => 'boolean'
         ]);
 
-        $this->commentService->update($request->all(), $id);
+        $data = [
+            'blog_id' => $request->input('blog'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'content' => $request->input('content'),
+            'status' => $request->input('status', 0),
+        ];
+
+
+        $this->commentService->update($data, $id);
         return redirect()->route('admin.comments.index')->with('success', __('messages.UpdatedMessage'));
     }
 

@@ -36,7 +36,8 @@
                                         <tr>
                                             <th>#</th>
                                             <th>@lang('attributes.blog')</th>
-                                            <th>@lang('attributes.user')</th>
+                                            <th>@lang('attributes.user_name')</th>
+                                            <th>@lang('attributes.email')</th>
                                             <th>@lang('attributes.status')</th>
                                             <th>@lang('attributes.action')</th>
                                         </tr>
@@ -47,7 +48,8 @@
                                             <tr id="row-{{ $comment->id }}">
                                                 <td>{{ $loop->iteration ?? '' }}</td>
                                                 <td>{{ $comment->blog->title ?? '' }}</td>
-                                                <td>{{ $comment->user->name ?? '' }}</td>
+                                                <td>{{ $comment->name ?? '' }}</td>
+                                                <td>{{ $comment->email ?? '' }}</td>
                                                 <td>{{ $comment->content ?? '' }}</td>
                                                 <td><input id="checkbox-1" type="checkbox" name="status"
                                                         @if ($comment->status == 1) checked @endif

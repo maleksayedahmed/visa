@@ -40,20 +40,23 @@
 
                             <div class="row">
                                 <div class="mb-3 col-md-6">
-                                    <label for="user">@lang('attributes.user')</label>
-                                    <select class="form-control" name="user" id="user">
-                                        <option value="">{{ __('Select User') }}</option>
-                                        @foreach ($users as $user)
-                                            <option value="{{ $user->id }}" {{ isset($item->user_id) && $item->user_id == $user->id ? 'selected' : '' }}>
-                                                {{ $user->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('user')
+                                    <label for="name">@lang('attributes.name')</label>
+                                    <input type="text" class="form-control" name="name" id="name"
+                                        placeholder="@lang('attributes.name')"
+                                        value="{{ old('country_code', $item->name) }}">
+                                    @error('name')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-
+                                <div class="mb-3 col-md-6">
+                                    <label for="email">@lang('attributes.email')</label>
+                                    <input type="text" class="form-control" name="email" id="email"
+                                        placeholder="@lang('attributes.email')"
+                                        value="{{ old('country_code', $item->email) }}">
+                                    @error('email')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
                                 <div class="mb-3 col-md-6">
                                     <label for="blog">@lang('attributes.blog')</label>
                                     <select class="form-control" name="blog" id="blog">
@@ -75,11 +78,11 @@
                             <div class="row">
                                 <div class="row">
                                     <div class="mb-3 col-md-12">
-                                        <label for="comment">@lang('attributes.comment')</label>
-                                        <textarea cols="30" rows="10" class="form-control" name="comment" id="comment"
-                                            placeholder="@lang('attributes.comment')">{{ old('comment', $item->content ?? '') }}</textarea>
+                                        <label for="content">@lang('attributes.comment')</label>
+                                        <textarea cols="30" rows="10" class="form-control" name="content" id="content"
+                                            placeholder="@lang('attributes.comment')">{{ old('content', $item->content ?? '') }}</textarea>
 
-                                        @error('comment')
+                                        @error('content')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
