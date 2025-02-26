@@ -88,7 +88,8 @@
                         <div class="service-item">
                             <div class="service-inner">
                                 <div class="service-img">
-                                    <img src="{{ $item->getFirstMediaUrl('category') }}" class="img-fluid w-100 rounded" alt="Image">
+                                    <img src="{{ $item->getFirstMedia('category') ? '/media/' . $item->getFirstMedia('category')->id . '/' . $item->getFirstMedia('category')->file_name : '' }}
+" class="img-fluid w-100 rounded" alt="Image">
                                 </div>
                                 <div class="service-title">
                                     <div class="service-title-name">
@@ -199,10 +200,12 @@
             <div class="col-lg-6 col-xl-3 mb-5 mb-xl-0 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="country-item">
                     <div class="rounded overflow-hidden">
-                        <img src="{{ $item->getFirstMediaUrl('country_cover') }}" class="img-fluid w-100 rounded" alt="Image">
+                        <img src="{{ $item->getFirstMedia('country_cover') ? '/media/' . $item->getFirstMedia('country_cover')->id . '/' . $item->getFirstMedia('country_cover')->file_name : '' }}
+" class="img-fluid w-100 rounded" alt="Image">
                     </div>
                     <div class="country-flag">
-                        <img src="{{ $item->getFirstMediaUrl('country') }}" class="img-fluid rounded-circle" alt="Image">
+                        <img src="{{ $item->getFirstMedia('country') ? '/media/' . $item->getFirstMedia('country')->id . '/' . $item->getFirstMedia('country')->file_name : '' }}
+" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div class="country-name">
                         <a href="/countries/{{$item->id}}" class="text-white fs-4">{{$item->name}}</a>

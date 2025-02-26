@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Country;
+use App\Models\VisaType;
 use App\Models\Visa;
 use Illuminate\Http\Request;
 use App\Services\VisaService;
@@ -26,7 +27,8 @@ class VisaController extends Controller
     public function create(Visa $item)
     {
         $countries = Country::where('status',1)->get();
-        return view('template.admin.visas.create_and_edit' ,compact('item' , 'countries') );
+        $visaTypes = VisaType::all();
+        return view('template.admin.visas.create_and_edit' ,compact('item' , 'countries','visaTypes') );
     }
 
     public function store(Request $request)
@@ -46,7 +48,8 @@ class VisaController extends Controller
     {
         $item = $this->visaService->find($id);
         $countries = Country::get();
-        return view('template.admin.visas.create_and_edit' , compact('item' , 'countries') );
+        $visaTypes = VisaType::all();
+        return view('template.admin.visas.create_and_edit' , compact('item' , 'countries','visaTypes') );
     }
 
     public function update(Request $request, string $id)

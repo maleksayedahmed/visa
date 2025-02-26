@@ -31,6 +31,9 @@ class VisaTypeService
     public function store(array $data)
     {
         $visaType = $this->visaTypeRepository->create($data);
+        if (isset($data['visatype_cover']) && $data['visatype_cover']) {
+            $visaType->addMediaFromRequest('visatype_cover')->toMediaCollection('visatype_cover');
+        }
         return $visaType;
     }
 
@@ -43,6 +46,9 @@ class VisaTypeService
     public function update($data, $id)
     {
         $visaType = $this->visaTypeRepository->find($id);
+        if (isset($data['visatype_cover']) && $data['visatype_cover']) {
+            $visaType->addMediaFromRequest('visatype_cover')->toMediaCollection('visatype_cover');
+        }
         return $this->visaTypeRepository->update($data, $visaType);
     }
 

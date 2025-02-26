@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class VisaType extends Model
+class VisaType extends Model implements HasMedia
 {
-    use SoftDeletes;
+    use SoftDeletes, InteractsWithMedia;
 
     protected $fillable = [
         'name',
@@ -15,5 +17,8 @@ class VisaType extends Model
 
     // public $translatable = ['name'];
 
-
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('visatype_cover')->singleFile();
+    }
 }

@@ -8,9 +8,8 @@ use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\CountryController;
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\VisaController;
-
-
-
+use App\Http\Controllers\User\ServiceController;
+use App\Models\Service;
 
 Route::get('/' , [HomeController::class , 'index']);
 Route::get('/logout', function () {
@@ -67,6 +66,9 @@ Route::get('/category/{id}', [CategoryController::class, 'index'])->name('catego
 
 Route::get('/visas', [VisaController::class, 'index'])->name('visas.index');
 Route::get('/visas/{id}', [VisaController::class, 'show'])->name('visas.show');
+
+Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+
 
 
 require __DIR__.'/auth.php';

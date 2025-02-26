@@ -24,11 +24,11 @@
                                     </ul>
                                 </div>
                             @endif
-                                  {{$item->id}}
+
                             @if ($item->id)
-                                <form action="{{ route('admin.visatypes.update', $item->id) }}" method="post">
+                                <form action="{{ route('admin.visatypes.update', $item->id) }}" method="post" enctype="multipart/form-data">
                             @else
-                                <form action="{{ route('admin.visatypes.store') }}" method="post">
+                                <form action="{{ route('admin.visatypes.store') }}" method="post" enctype="multipart/form-data">
                             @endif
 
                             @csrf
@@ -44,18 +44,29 @@
                                 </div>
                             </div>
 
-
-                            <div class="mb-3 col-md-6">
-                                <div class="checkbox checkbox-success">
-                                    <input type="hidden" name="status" value="0">
-                                    <input id="checkbox6a" type="checkbox" name="status" value="1"
-                                           @if (isset($item->status) && $item->status == 1) checked @endif
-                                           data-bootstrap-switch data-off-color="danger" data-on-color="success">
-                                    <label class="form-label" for="checkbox6a">
-                                        @lang('attributes.status')
-                                    </label>
+                            <div class="row">
+                                <div class="mb-3 col-md-12">
+                                    @if ($item->id)
+                                        <img id="image-preview" src="{{ $item->getFirstMedia('visatype_cover') ? '/media/' . $item->getFirstMedia('visatype_cover')->id . '/' . $item->getFirstMedia('visatype_cover')->file_name : '' }}
+"
+                                            alt="Current Image"
+                                            style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                                    @else
+                                        <img id="image-preview" src="" alt="Image Preview"
+                                            style="display: none; max-width: 100%; height: auto; margin-bottom: 10px;">
+                                    @endif
+                                    <!-- <label for="customFile">Custom File</label> -->
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile" name="visatype_cover"
+                                            accept="image/*">
+                                        <label class="custom-file-label" for="customFile">@lang('attributes.choose_image_cover')</label>
+                                    </div>
+                                    @error('visatype_cover')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
+
 
                             <div class="text-end mb-0">
                                 <button class="btn btn-success me-1" type="submit">

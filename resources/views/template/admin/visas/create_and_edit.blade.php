@@ -59,26 +59,6 @@
                                 </div>
                                 <div class="row">
                                     <div class="mb-3 col-md-6">
-                                        <label for="visa_type[en]">@lang('attributes.visa_type_en')</label>
-                                        <input type="text" class="form-control" name="visa_type[en]" id="visa_type[en]"
-                                            placeholder="@lang('attributes.visa_type_en')"
-                                            value="{{ old('visa_type[en]', $item->getTranslation('visa_type', 'en')) }}">
-                                        @error('visa_type[en]')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="visa_type[ar]">@lang('attributes.visa_type_ar')</label>
-                                        <input type="text" class="form-control" name="visa_type[ar]" id="visa_type[ar]"
-                                            placeholder="@lang('attributes.visa_type_ar')"
-                                            value="{{ old('visa_type[ar]', $item->getTranslation('visa_type', 'ar')) }}">
-                                        @error('visa_type[ar]')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
                                         <label for="description[en]">@lang('attributes.description_en')</label>
                                         <input type="text" class="form-control" name="description[en]"
                                             id="description[en]" placeholder="@lang('attributes.description_en')"
@@ -113,6 +93,23 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+
+                                    <div class="mb-3 col-md-6">
+                                        <label for="visa_type">@lang('attributes.visa_type')</label>
+                                        <select class="form-control" name="visa_type" id="visa_type">
+                                            <option value="">@lang('attributes.select_visa_type')</option>
+                                            @foreach ($visaTypes as $visaType)
+                                                <option value="{{ $visaType->name }}"
+                                                    {{ old('visa_type', $item->visa_type ?? '') == $visaType->name ? 'selected' : '' }}>
+                                                    {{ $visaType->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('visa_type')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
 
                                     <div class="mb-3 col-md-6">
                                         <label for="cost">@lang('attributes.cost')</label>
