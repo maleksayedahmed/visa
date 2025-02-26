@@ -38,13 +38,13 @@
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
                     <h4 class="text-secondary mb-4">Our Services</h4>
-                    <a href="#" class=""><i class="fas fa-angle-right me-2"></i> Business</a>
-                    <a href="#" class=""><i class="fas fa-angle-right me-2"></i> Evaluation</a>
-                    <a href="#" class=""><i class="fas fa-angle-right me-2"></i> Migrate</a>
-                    <a href="#" class=""><i class="fas fa-angle-right me-2"></i> Study</a>
-                    <a href="#" class=""><i class="fas fa-angle-right me-2"></i> Counselling</a>
-                    <a href="#" class=""><i class="fas fa-angle-right me-2"></i> Work / Career</a>
+                    @foreach ($visaTypes as $visaType)
+                        <a href="{{ route('visas.index') }}">
+                            <i class="fas fa-angle-right me-2"></i> {{ $visaType->name }}
+                        </a>
+                    @endforeach
                 </div>
+
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item">

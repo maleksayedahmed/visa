@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\VisaType;
+use Illuminate\Support\Facades\View;
+
 
 class ServiceController extends Controller
 {
@@ -11,6 +13,12 @@ class ServiceController extends Controller
     {
         $services = VisaType::paginate(10);  // Or you can paginate if you have many blogs
         return view('template.user.service.index', compact('services'));
+    }
+    public function boot()
+    {
+        View::composer('*', function ($view) {
+            $view->with('visaTypes', VisaType::all());
+        });
     }
 
     // // Display a specific visa by ID

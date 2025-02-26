@@ -12,9 +12,10 @@ class Comment extends Model
 
     protected $fillable = [
         'blog_id',
-        'user_id',
+        'name',
         'content',
         'status',
+        'email',
     ];
 
     protected $casts = [

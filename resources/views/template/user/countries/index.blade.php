@@ -27,10 +27,12 @@
             <div class="col-lg-6 col-xl-3 mb-5 mb-xl-0 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                 <div class="country-item">
                     <div class="rounded overflow-hidden">
-                        <img src="{{ $country->getFirstMediaUrl('country_cover') }}" class="img-fluid w-100 rounded" alt="Image">
+                        <img src="{{ $country->getFirstMedia('country_cover') ? '/media/' . $country->getFirstMedia('country_cover')->id . '/' . $country->getFirstMedia('country_cover')->file_name : '' }}
+" class="img-fluid w-100 rounded" alt="Image">
                     </div>
                     <div class="country-flag">
-                        <img src="{{ $country->getFirstMediaUrl('country') }}" class="img-fluid rounded-circle" alt="Image">
+                        <img src="{{ $country->getFirstMedia('country') ? '/media/' . $country->getFirstMedia('country')->id . '/' . $country->getFirstMedia('country')->file_name : '' }}
+" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div class="country-name">
                         <a href="{{ route('country.show', $country->id) }}" class="text-white fs-4">{{ $country->name }}</a>
@@ -43,18 +45,4 @@
         </div>
     </div>
 </div>
-    <h2 class="category-title">Countries</h2>
-    <div class="cards-container">
-        @foreach ($countries as $country)
-            @if ($country->status == 1)
-            <div class="card">
-                <div class="card-body">
-                <h5 class="card-title">{{ $country->name }}</h5>
-                <a href="{{ route('country.show', $country->id) }}" class="btn btn-primary">See details</a>
-                </div>
-            </div>
-            @endif
-        @endforeach
-    </div>
-
 @endsection

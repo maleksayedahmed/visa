@@ -8,6 +8,8 @@ use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\CountryController;
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\VisaController;
+
+use App\Http\Controllers\User\CommentController;
 use App\Http\Controllers\User\ServiceController;
 use App\Models\Service;
 
@@ -68,6 +70,9 @@ Route::get('/visas', [VisaController::class, 'index'])->name('visas.index');
 Route::get('/visas/{id}', [VisaController::class, 'show'])->name('visas.show');
 
 Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+
+Route::post('/blogs/{blog}/comments', [CommentController::class, 'store'])->name('comments.store');
+// Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
 
 
 

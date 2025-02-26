@@ -21,11 +21,45 @@
                 </div>
             @endif
 
-            <!-- Loop through subheadings if available -->
-            {{-- @foreach($blog->subheadings as $subheading)
-                <h2 class="blog-subtitle">{{ $subheading->title }}</h2>
-                <p>{{ $subheading->content }}</p>
-            @endforeach --}}
         </div>
     </div>
+    <form action="{{ route('comments.store', $blog->id) }}" method="POST">
+        @csrf
+        <input type="hidden" name="blog_id" value="{{ $blog->id }}">
+
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Your Comment</label>
+            <textarea name="content" id="content" class="form-control" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Comment</button>
+    </form>
+
+
+    <h2>Comments</h2>
+
+    @foreach($blog->comments->where('status', true) as $comment)
+    <div class="approved-comment">
+        <p><strong>{{ $comment->name }}</strong> ({{ $comment->email }}) said:</p>
+        <p>{{ $comment->content }}</p>
+    </div>
+    @endforeach
+
+    @if($blog->comments->where('status', false)->count() > 0)
+        <div class="pending-comments">
+            <p>There are some comments awaiting moderation.</p>
+        </div>
+    @endif
+
+
 @endsection
