@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
         <a href="{{ url('/') }}" class="navbar-brand p-0">
             <h1 class="display-5 text-secondary m-0">
-                <img src="{{ asset('assets/img/brand-logo.png') }}" class="img-fluid" alt="">Travisa
+                <img src="{{ asset('assets/img/brand-logo.png') }}" class="img-fluid" alt="">{{getSetting()->title}}
             </h1>
             <!-- <img src="{{ asset('assets/img/logo.png') }}" alt="Logo"> -->
         </a>
@@ -32,7 +32,7 @@
             {{-- <button class="btn btn-primary btn-md-square border-secondary mb-3 mb-md-3 mb-lg-0 me-3" data-bs-toggle="modal" data-bs-target="#searchModal">
                 <i class="fas fa-search"></i>
             </button> --}}
-            <a href="https://wa.me/+970567067187" class="btn btn-primary border-secondary rounded-pill py-2 px-4 px-lg-3 mb-3 mb-md-3 mb-lg-0">Get A Quote</a>
+            <a target="_blank" href="https://wa.me/{{getSetting()->whatsapp}}" class="btn btn-primary border-secondary rounded-pill py-2 px-4 px-lg-3 mb-3 mb-md-3 mb-lg-0">Get A Quote</a>
         </div>
     </nav>
 </div>
