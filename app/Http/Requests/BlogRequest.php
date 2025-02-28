@@ -16,6 +16,7 @@ class BlogRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'category_id' => 'nullable|exists:categories,id',
+            'country_id' => 'nullable|exists:countries,id',
             'user_id' => 'nullable|exists:users,id',
             'status' => 'required|boolean',
         ];

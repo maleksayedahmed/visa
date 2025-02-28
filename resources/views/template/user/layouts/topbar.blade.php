@@ -12,7 +12,7 @@
                 <a class="btn btn-sm btn-outline-light btn-square rounded-circle me-2" target="_blank" href="{{getSetting()->x}}"><i class="fab fa-twitter fw-normal text-secondary"></i></a>
                 <a class="btn btn-sm btn-outline-light btn-square rounded-circle me-2" target="_blank" href="{{getSetting()->facebook}}"><i class="fab fa-facebook-f fw-normal text-secondary"></i></a>
                 <a class="btn btn-sm btn-outline-light btn-square rounded-circle me-2" target="_blank" href="{{getSetting()->instagram}}"><i class="fab fa-instagram fw-normal text-secondary"></i></a>
-                <a class="btn btn-sm btn-outline-light btn-square rounded-circle me-2" target="_blank" href="https://wa.me/{{getSetting()->mobile_number}}"><i class="fab fa-whatsapp fw-normal text-secondary"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-square rounded-circle me-2" target="_blank" href="https://wa.me/{{getSetting()->whatsapp}}"><i class="fab fa-whatsapp fw-normal text-secondary"></i></a>
             </div>
         </div>
         <div class="col-lg-4 text-center text-lg-end">

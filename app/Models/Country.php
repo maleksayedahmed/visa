@@ -18,5 +18,10 @@ class Country extends Model implements HasMedia
 
     public $translatable = ['name'];
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('country')->singleFile();
+        $this->addMediaCollection('country_cover')->singleFile();
+    }
 
 }

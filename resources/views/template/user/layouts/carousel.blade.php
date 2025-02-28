@@ -21,7 +21,8 @@
             @foreach ($sliders as $item)
 
             <div class="carousel-item {{$loop->iteration == 1 ? 'active' : ''}}">
-                <img src="{{ $item->getFirstMediaUrl('slider') }}" class="img-fluid" alt="Image">
+                <img src="{{ $item->getFirstMedia('slider') ? '/media/' . $item->getFirstMedia('slider')->id . '/' . $item->getFirstMedia('slider')->file_name : '' }}
+" class="img-fluid" alt="Image">
                 <div class="carousel-caption">
                     <div class="text-center p-4" style="max-width: 900px;">
                         {{-- <h4 class="text-white text-uppercase fw-bold mb-3 mb-md-4 wow fadeInUp" data-wow-delay="0.1s">Solution For All Type Of Visas</h4> --}}

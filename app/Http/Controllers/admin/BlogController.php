@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Country;
 use App\Models\User;
 use App\Services\BlogService;
 use Illuminate\Http\Request;
@@ -43,7 +44,8 @@ class BlogController extends Controller
         $blog = $this->blogService->find($id);
         $categories = Category::all();
         $users = User::all();
-        return view('template.admin.blogs.create_and_edit', compact('blog', 'categories', 'users'));
+        $countries = Country::where('status' , 1)->get();
+        return view('template.admin.blogs.create_and_edit', compact('blog', 'categories', 'users' , 'countries'));
     }
 
     public function update(BlogRequest $request, $id)

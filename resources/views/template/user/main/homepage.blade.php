@@ -88,20 +88,21 @@
                         <div class="service-item">
                             <div class="service-inner">
                                 <div class="service-img">
-                                    <img src="{{ $item->getFirstMediaUrl('category') }}" class="img-fluid w-100 rounded" alt="Image">
+                                    <img src="{{ $item->getFirstMedia('category') ? '/media/' . $item->getFirstMedia('category')->id . '/' . $item->getFirstMedia('category')->file_name : '' }}
+" class="img-fluid w-100 rounded" alt="Image">
                                 </div>
                                 <div class="service-title">
                                     <div class="service-title-name">
                                         <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
                                             <a href="#" class="h4 text-white mb-0">{{$item->name}}</a>
                                         </div>
-                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
+                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="/category/{{$item->id}}">Explore More</a>
                                     </div>
                                     <div class="service-content pb-4">
                                         <a href="#"><h4 class="text-white mb-4 py-3">{{$item->name}}</h4></a>
                                         <div class="px-4">
                                             <p class="mb-4">{{$item->description}}</p>
-                                            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="#">Explore More</a>
+                                            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="/category/{{$item->id}}">Explore More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -199,13 +200,15 @@
             <div class="col-lg-6 col-xl-3 mb-5 mb-xl-0 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="country-item">
                     <div class="rounded overflow-hidden">
-                        <img src="{{ $item->getFirstMediaUrl('country_cover') }}" class="img-fluid w-100 rounded" alt="Image">
+                        <img src="{{ $item->getFirstMedia('country_cover') ? '/media/' . $item->getFirstMedia('country_cover')->id . '/' . $item->getFirstMedia('country_cover')->file_name : '' }}
+" class="img-fluid w-100 rounded" alt="Image">
                     </div>
                     <div class="country-flag">
-                        <img src="{{ $item->getFirstMediaUrl('country') }}" class="img-fluid rounded-circle" alt="Image">
+                        <img src="{{ $item->getFirstMedia('country') ? '/media/' . $item->getFirstMedia('country')->id . '/' . $item->getFirstMedia('country')->file_name : '' }}
+" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div class="country-name">
-                        <a href="#" class="text-white fs-4">{{$item->name}}</a>
+                        <a href="/countries/{{$item->id}}" class="text-white fs-4">{{$item->name}}</a>
                     </div>
                 </div>
             </div>
@@ -215,7 +218,7 @@
 
 
             <div class="col-12">
-                <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="#">More Countries</a>
+                <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="/countries">More Countries</a>
             </div>
         </div>
     </div>

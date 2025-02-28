@@ -79,6 +79,24 @@
                                         @enderror
                                     </div>
 
+
+                                    <div class="mb-3">
+                                        <label for="country_id">@lang('attributes.category')</label>
+                                        <select name="country_id" id="country_id"
+                                            class="form-select @error('category_id') is-invalid @enderror">
+                                            <option value="" selected>@lang('attributes.select_category')</option>
+                                            @foreach ($countries as $country)
+                                                <option value="{{ $country->id }}"
+                                                    {{ old('country_id', $blog->country_id) == $country->id ? 'selected' : '' }}>
+                                                    {{ $country->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('country_id')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
                                     <div class="mb-3 col-md-6">
                                         <div class="checkbox checkbox-success">
                                             <input type="hidden" name="status" value="0">

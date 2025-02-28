@@ -4,6 +4,14 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\BlogController;
+use App\Http\Controllers\User\CountryController;
+use App\Http\Controllers\User\CategoryController;
+use App\Http\Controllers\User\VisaController;
+
+use App\Http\Controllers\User\CommentController;
+use App\Http\Controllers\User\ServiceController;
+use App\Models\Service;
 
 Route::get('/' , [HomeController::class , 'index']);
 Route::get('/logout', function () {
@@ -41,16 +49,32 @@ Route::get('/contact', function () {
 })->name('contact');
 
 
-Route::get('/blogs', function () {
-    return view('template.user.blogs.blogs');
-})->name('blogs.index');
+// Route::get('/blogs', function () {
+//     return view('template.user.blogs.blogs');
+// })->name('blogs.index');
 
 
 
-Route::get('/blog', function () {
-    return view('template.user.blogs.blog');
+// Route::get('/blog', function () {
+//     return view('template.user.blogs.blog');
 
-})->name('blog.index');
+// })->name('blog.index');
+
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.index');
+Route::get('/countries', [CountryController::class, 'index'])->name('country.index');
+Route::get('/countries/{id}', [CountryController::class, 'show'])->name('country.show');
+Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category.index');
+
+Route::get('/visas', [VisaController::class, 'index'])->name('visas.index');
+Route::get('/visas/{id}', [VisaController::class, 'show'])->name('visas.show');
+
+Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+
+Route::post('/blogs/{blog}/comments', [CommentController::class, 'store'])->name('comments.store');
+// Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
+
+
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';

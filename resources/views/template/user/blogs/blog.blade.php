@@ -3,31 +3,63 @@
 @section('content')
     <div class="blog-header" style="background-image: url('{{ asset('assets/images/blog-img.png') }}');">
         <div class="overlay">
-            <h1 class="blog-header-title">Blog Details</h1>
+            <h1 class="blog-header-title">{{ $blog->title }}</h1>
         </div>
     </div>
     <div class="blog-details-container">
-        <p class="blog-publish-date">Published on: February 8, 2025</p>
-        <h1 class="blog-title">Business Loans That Are Fast In Services</h1>
+        <p class="blog-publish-date">Published on: {{ $blog->created_at->format('F j, Y') }}</p>
+        <h1 class="blog-title">{{ $blog->title }}</h1>
         <div class="blog-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at diam posuere, hendrerit eros id, egestas urna. Nulla. Vivamus ut nisi nec risus pellentesque convallis. Aenean vitae volutpat nisi. Fusce id elit nec odio tempus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at diam posuere, hendrerit eros id, egestas urna. Nulla. Vivamus ut nisi nec risus pellentesque convallis. Aenean vitae volutpat nisi. Fusce id elit nec odio tempus.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at diam posuere, hendrerit eros id, egestas urna. Nulla. Vivamus ut nisi nec risus pellentesque convallis. Aenean vitae volutpat nisi. Fusce id elit nec odio tempus.</p>
-            
-            <div class="blog-inline-image">
-                <img src="{{ asset('assets/images/Airport.jpeg') }}" alt="Blog Content Image">
-                <p class="caption">A modern office setting with teamwork</p>
-            </div>
+            <!-- Display the content, making sure it's properly escaped -->
+            {!! ($blog->description) !!}
 
-            <h2 class="blog-subtitle">Why Business Loans are Essential</h2>
-            <p>Proin sit amet lacus at est gravida malesuada nec vitae erat. Donec pharetra, nibh id lacinia mollis, nulla ex vehicula nisi, id cursus nisi libero at eros. Suspendisse potenti. Mauris egestas, mi a volutpat auctor, arcu risus vulputate nisl, a efficitur magna orci eu nisl. Aenean ut mauris a arcu efficitur malesuada.</p>
-            
-            <h2 class="blog-subtitle">How to Choose the Right Loan</h2>
-            <p>Etiam dapibus, justo ut consequat ultrices, lorem arcu blandit nisl, vel pharetra lectus nunc et turpis. Fusce ultricies turpis id vehicula volutpat. Integer nec varius risus. Curabitur bibendum eros ut tellus tincidunt, vel consequat ipsum fermentum. Duis quis arcu sapien. Pellentesque eget ligula ac augue condimentum dictum sed in arcu.</p>
-            <p>Etiam dapibus, justo ut consequat ultrices, lorem arcu blandit nisl, vel pharetra lectus nunc et turpis. Fusce ultricies turpis id vehicula volutpat. Integer nec varius risus. Curabitur bibendum eros ut tellus tincidunt, vel consequat ipsum fermentum. Duis quis arcu sapien. Pellentesque eget ligula ac augue condimentum dictum sed in arcu.</p>
-            <p>Etiam dapibus, justo ut consequat ultrices, lorem arcu blandit nisl, vel pharetra lectus nunc et turpis. Fusce ultricies turpis id vehicula volutpat. Integer nec varius risus. Curabitur bibendum eros ut tellus tincidunt, vel consequat ipsum fermentum. Duis quis arcu sapien. Pellentesque eget ligula ac augue condimentum dictum sed in arcu.</p>
-            <p>Etiam dapibus, justo ut consequat ultrices, lorem arcu blandit nisl, vel pharetra lectus nunc et turpis. Fusce ultricies turpis id vehicula volutpat. Integer nec varius risus. Curabitur bibendum eros ut tellus tincidunt, vel consequat ipsum fermentum. Duis quis arcu sapien. Pellentesque eget ligula ac augue condimentum dictum sed in arcu.</p>
-            
+            <!-- Display the blog's image if available -->
+            @if($blog->image)
+                <div class="blog-inline-image">
+                    <img src="{{ asset('storage/' . $blog->image) }}" alt="Blog Content Image">
+                    <p class="caption">{{ $blog->image_caption }}</p>
+                </div>
+            @endif
+
         </div>
     </div>
+    <form action="{{ route('comments.store', $blog->id) }}" method="POST">
+        @csrf
+        <input type="hidden" name="blog_id" value="{{ $blog->id }}">
+
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="content">Your Comment</label>
+            <textarea name="content" id="content" class="form-control" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Comment</button>
+    </form>
+
+
+    <h2>Comments</h2>
+
+    @foreach($blog->comments->where('status', true) as $comment)
+    <div class="approved-comment">
+        <p><strong>{{ $comment->name }}</strong> ({{ $comment->email }}) said:</p>
+        <p>{{ $comment->content }}</p>
+    </div>
+    @endforeach
+
+    @if($blog->comments->where('status', false)->count() > 0)
+        <div class="pending-comments">
+            <p>There are some comments awaiting moderation.</p>
+        </div>
+    @endif
+
+
 @endsection
