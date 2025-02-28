@@ -19,7 +19,7 @@
                 <h5 class="sub-title text-primary px-3">COUNTRIES WE OFFER</h5>
             </div>
             <h1 class="display-5 mb-4">Immigration &amp; visa services following Countries</h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
+            <p class="mb-0">We provide expert immigration and visa services for various destinations worldwide. Our dedicated team ensures a seamless and stress-free process, helping you secure the right visa for your needs.</p>
         </div>
         <div class="row g-4 text-center">
             @foreach ($countries as $country)

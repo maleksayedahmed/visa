@@ -57,12 +57,12 @@
                         <span> @lang('attributes.countries') </span>
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="{{ route('admin.cities.index') }}">
                         <i class="bi-globe"></i>
                         <span> @lang('attributes.cities') </span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li>
                     <a href="{{ route('admin.categories.index') }}">

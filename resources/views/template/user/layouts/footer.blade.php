@@ -5,16 +5,14 @@
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
                     <h4 class="text-secondary mb-4">Contact Info</h4>
-                    <a href=""><i class="fa fa-map-marker-alt me-2"></i> 123 Street, New York, USA</a>
-                    <a href=""><i class="fas fa-envelope me-2"></i> info@example.com</a>
-                    <a href=""><i class="fas fa-phone me-2"></i> +012 345 67890</a>
-                    <a href="" class="mb-3"><i class="fas fa-print me-2"></i> +012 345 67890</a>
+                    <a href=""><i class="fas fa-envelope me-2"></i> {{getSetting()->email}}</a>
+                    <a href="tel:+{{getSetting()->mobile_number}}"><i class="fas fa-phone me-2"></i> +{{getSetting()->mobile_number}}</a>
                     <div class="d-flex align-items-center">
                         <i class="fas fa-share fa-2x text-secondary me-2"></i>
-                        <a class="btn mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn mx-1" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn mx-1" href=""><i class="fab fa-instagram"></i></a>
-                        <a class="btn mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn mx-1" target="_blank" href="{{getSetting()->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn mx-1" target="_blank" href="{{getSetting()->x}}" ><i class="fab fa-twitter"></i></a>
+                        <a class="btn mx-1" target="_blank" href="{{getSetting()->instagram}}"><i class="fab fa-instagram"></i></a>
+                        <a class="btn mx-1" target="_blank" href="https://wa.me/{{getSetting()->whatsapp}}"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -49,7 +47,7 @@
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item">
                     <h4 class="text-secondary mb-4">Newsletter</h4>
-                    <p class="text-white mb-3">Dolor amet sit justo amet elitr clita ipsum elitr est.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p class="text-white mb-3">Stay updated with the latest immigration news, visa updates, and expert tips. Subscribe to our newsletter and never miss an important update!</p>
                     <div class="position-relative mx-auto rounded-pill">
                         <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
                         <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">SignUp</button>
@@ -66,14 +64,14 @@
         <div class="row g-4 align-items-center">
             <div class="col-md-6 text-center text-md-start mb-md-0">
                 <span class="text-white">
-                    <a href="#" class="border-bottom text-white">
-                        <i class="fas fa-copyright text-light me-2"></i> Your Site Name
+                    <a href="{{ url('/') }}" class="border-bottom text-white">
+                        <i class="fas fa-copyright text-light me-2"></i>{{getSetting()->title}}
                     </a>, All rights reserved.
                 </span>
             </div>
             <div class="col-md-6 text-center text-md-end text-white">
                 Designed By
-                <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
+                <a class="border-bottom text-white" target="_blank" href="https://www.linkedin.com/in/malek-sayed-ahmed">Malek Sayed Ahmed</a>
             </div>
         </div>
     </div>
