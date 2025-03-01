@@ -76,7 +76,7 @@
                         <h5 class="sub-title text-primary px-3">Visa Categories</h5>
                     </div>
                     <h1 class="display-5 mb-4">Enabling Your Immigration Successfully</h1>
-                    <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
+                    <p class="mb-0">Navigating the complexities of immigration can be challenging, but we're here to make the process smooth and successful. Whether you're looking for a job abroad, expanding your business, or traveling for diplomatic purposes, we provide expert guidance to help you secure the right visa with ease.</p>
                 </div>
 
                 <div class="row g-4">
@@ -88,20 +88,21 @@
                         <div class="service-item">
                             <div class="service-inner">
                                 <div class="service-img">
-                                    <img src="{{ $item->getFirstMediaUrl('category') }}" class="img-fluid w-100 rounded" alt="Image">
+                                    <img src="{{ $item->getFirstMedia('category') ? '/media/' . $item->getFirstMedia('category')->id . '/' . $item->getFirstMedia('category')->file_name : '' }}
+" class="img-fluid w-100 rounded" alt="Image">
                                 </div>
                                 <div class="service-title">
                                     <div class="service-title-name">
                                         <div class="bg-primary text-center rounded p-3 mx-5 mb-4">
                                             <a href="#" class="h4 text-white mb-0">{{$item->name}}</a>
                                         </div>
-                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="#">Explore More</a>
+                                        <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4" href="/category/{{$item->id}}">Explore More</a>
                                     </div>
                                     <div class="service-content pb-4">
                                         <a href="#"><h4 class="text-white mb-4 py-3">{{$item->name}}</h4></a>
                                         <div class="px-4">
                                             <p class="mb-4">{{$item->description}}</p>
-                                            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="#">Explore More</a>
+                                            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5" href="/category/{{$item->id}}">Explore More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +128,7 @@
                 <h5 class="sub-title text-primary px-3">Why Choose Us</h5>
             </div>
             <h1 class="display-5 mb-4">Offer Tailor Made Services That Our Client Requires</h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
+            <p class="mb-0">We provide personalized immigration solutions to make your journey smoother and hassle-free. Our expert team ensures that you get the best assistance for a successful visa application process, tailored to your specific needs.</p>
         </div>
         <div class="row g-4 justify-content-center text-center">
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
@@ -137,7 +138,7 @@
                     </div>
                     <div class="feature-content d-flex flex-column">
                         <h5 class="mb-3">Cost-Effective</h5>
-                        <p class="mb-3">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum accusamus,</p>
+                        <p class="mb-3">Affordable visa solutions designed to save you time and money while ensuring a smooth application process.</p>
                     </div>
                 </div>
             </div>
@@ -148,7 +149,7 @@
                     </div>
                     <div class="feature-content d-flex flex-column">
                         <h5 class="mb-3">Visa Assistance</h5>
-                        <p class="mb-3">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum accusamus,</p>
+                        <p class="mb-3">Expert guidance at every step of your visa application, from documentation to approval.</p>
                     </div>
                 </div>
             </div>
@@ -159,7 +160,7 @@
                     </div>
                     <div class="feature-content d-flex flex-column">
                         <h5 class="mb-3">Faster Processing</h5>
-                        <p class="mb-3">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum accusamus,</p>
+                        <p class="mb-3">We streamline the application process to ensure quicker approvals and minimize delays.</p>
                     </div>
                 </div>
             </div>
@@ -170,7 +171,7 @@
                     </div>
                     <div class="feature-content d-flex flex-column">
                         <h5 class="mb-3">Direct Interviews</h5>
-                        <p class="mb-3">Dolor, sit amet consectetur adipisicing elit. Soluta inventore cum accusamus,</p>
+                        <p class="mb-3">We help you prepare for interviews with immigration officers to increase your chances of approval.</p>
                     </div>
                 </div>
             </div>
@@ -190,7 +191,7 @@
                 <h5 class="sub-title text-primary px-3">COUNTRIES WE OFFER</h5>
             </div>
             <h1 class="display-5 mb-4">Immigration & visa services following Countries</h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
+            <p class="mb-0">We provide expert immigration and visa services for various destinations worldwide. Our dedicated team ensures a seamless and stress-free process, helping you secure the right visa for your needs.</p>
         </div>
         <div class="row g-4 text-center">
 
@@ -199,13 +200,15 @@
             <div class="col-lg-6 col-xl-3 mb-5 mb-xl-0 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="country-item">
                     <div class="rounded overflow-hidden">
-                        <img src="{{ $item->getFirstMediaUrl('country_cover') }}" class="img-fluid w-100 rounded" alt="Image">
+                        <img src="{{ $item->getFirstMedia('country_cover') ? '/media/' . $item->getFirstMedia('country_cover')->id . '/' . $item->getFirstMedia('country_cover')->file_name : '' }}
+" class="img-fluid w-100 rounded" alt="Image">
                     </div>
                     <div class="country-flag">
-                        <img src="{{ $item->getFirstMediaUrl('country') }}" class="img-fluid rounded-circle" alt="Image">
+                        <img src="{{ $item->getFirstMedia('country') ? '/media/' . $item->getFirstMedia('country')->id . '/' . $item->getFirstMedia('country')->file_name : '' }}
+" class="img-fluid rounded-circle" alt="Image">
                     </div>
                     <div class="country-name">
-                        <a href="#" class="text-white fs-4">{{$item->name}}</a>
+                        <a href="/countries/{{$item->id}}" class="text-white fs-4">{{$item->name}}</a>
                     </div>
                 </div>
             </div>
@@ -215,7 +218,7 @@
 
 
             <div class="col-12">
-                <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="#">More Countries</a>
+                <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.1s" href="/countries">More Countries</a>
             </div>
         </div>
     </div>
@@ -231,12 +234,12 @@
                 <h5 class="sub-title text-primary px-3">OUR CLIENTS REVIEWS</h5>
             </div>
             <h1 class="display-5 mb-4">What Our Clients Say</h1>
-            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
+            <p class="mb-0">We take pride in delivering exceptional visa and immigration services. Hear what our satisfied clients have to say about their experience with us.</p>
         </div>
         <div class="owl-carousel testimonial-carousel wow zoomInDown" data-wow-delay="0.2s">
             <div class="testimonial-item">
                 <div class="testimonial-content p-4 mb-5">
-                    <p class="fs-5 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitati eiusmod tempor incididunt.</p>
+                    <p class="fs-5 mb-0">The visa application process was incredibly smooth, thanks to their expert guidance. They handled all the paperwork efficiently, and I got my visa approved without any hassle. Highly recommended!</p>
                     <div class="d-flex justify-content-end">
                         <i class="fas fa-star' text-secondary"></i>
                         <i class="fas fa-star' text-secondary"></i>
@@ -250,14 +253,14 @@
                         <img class="img-fluid rounded-circle" src="{{ asset('assets/img/testimonial-1.jpg') }}" alt="img">
                     </div>
                     <div class="my-auto">
-                        <h5>Person Name</h5>
-                        <p class="mb-0">Profession</p>
+                        <h5>Emily Davis</h5>
+                        <p class="mb-0">Business Owner</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item">
                 <div class="testimonial-content p-4 mb-5">
-                    <p class="fs-5 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitati eiusmod tempor incididunt.</p>
+                    <p class="fs-5 mb-0">Professional and reliable service! They provided great support in obtaining my business visa, ensuring all documents were in order. A minor delay, but overall, a great experience.</p>
                     <div class="d-flex justify-content-end">
                         <i class="fas fa-star text-secondary"></i>
                         <i class="fas fa-star text-secondary"></i>
@@ -271,14 +274,14 @@
                         <img class="img-fluid rounded-circle" src="{{ asset('assets/img/testimonial-2.jpg') }}" alt="img">
                     </div>
                     <div class="my-auto">
-                        <h5>Person Name</h5>
-                        <p class="mb-0">Profession</p>
+                        <h5>lily Smith</h5>
+                        <p class="mb-0">Student</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-item">
                 <div class="testimonial-content p-4 mb-5">
-                    <p class="fs-5 mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitati eiusmod tempor incididunt.</p>
+                    <p class="fs-5 mb-0">I was worried about getting my student visa, but their team made it easy. They walked me through every step and provided excellent advice. I’m now studying abroad stress-free!</p>
                     <div class="d-flex justify-content-end">
                         <i class="fas fa-star text-secondary"></i>
                         <i class="fas fa-star text-secondary"></i>
@@ -292,8 +295,8 @@
                         <img class="img-fluid rounded-circle" src="{{ asset('assets/img/testimonial-3.jpg') }}" alt="img">
                     </div>
                     <div class="my-auto">
-                        <h5>Person Name</h5>
-                        <p class="mb-0">Profession</p>
+                        <h5>Michael Lee</h5>
+                        <p class="mb-0">Software Engineer</p>
                     </div>
                 </div>
             </div>

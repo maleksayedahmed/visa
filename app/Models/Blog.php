@@ -9,16 +9,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Blog extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $table = 'posts';
+
     protected $fillable = [
         'title',
         'description',
         'category_id',
+        'country_id',
         'user_id',
         'status',
         'created_by',
         'updated_by',
         'deleted_by',
+        'image',         // Add the image field
+        'image_caption', // Add the image_caption field
+        'content',       // Add content field if not already present
     ];
 
     protected $casts = [
@@ -36,6 +42,8 @@ class Blog extends Model
         return $this->belongsTo(User::class);
     }
 
+
+
     // Auditing relationships (optional)
     public function creator()
     {
@@ -51,4 +59,10 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class, 'deleted_by');
     }
+
+    public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
+
 }

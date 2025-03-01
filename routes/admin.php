@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\Admin\ModelTypesDataController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\CommentController;
 
 Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class , 'create'])->name('admin.login');
 Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 'middleware' => ['auth', 'verified', 'role:admin'], 'prefix' => 'admin'], function () {
@@ -43,6 +44,16 @@ Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 
         Route::post('/change-status', 'changeStatus')->name('categories.status');
     });
 
+    Route::prefix('visas')->controller(\App\Http\Controllers\Admin\VisaController::class)->group(function () {
+        Route::get('/', 'index')->name('visas.index');
+        Route::get('/create', 'create')->name('visas.create');
+        Route::post('/store', 'store')->name('visas.store');
+        Route::get('/edit/{id}', 'edit')->name('visas.edit');
+        Route::post('/update/{id}', 'update')->name('visas.update');
+        Route::delete('/delete/{id}', 'destroy')->name('visas.delete');
+        Route::post('/change-status', 'changeStatus')->name('visas.status');
+    });
+
 
 
     Route::prefix('blogs')->controller(\App\Http\Controllers\Admin\BlogController::class)->group(function () {
@@ -73,6 +84,28 @@ Route::group(['namespace' => 'App\\Http\\Controllers\\Admin', 'as' => 'admin.', 
 
 
     // Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'dashBoard'])->name('dashboard');
+
+
+    Route::prefix('comments')->controller(\App\Http\Controllers\Admin\CommentController::class)->group(function () {
+        Route::get('/', 'index')->name('comments.index');
+        Route::get('/create', 'create')->name('comments.create');
+        Route::post('/store', 'store')->name('comments.store');
+        Route::get('/edit/{id}', 'edit')->name('comments.edit');
+        Route::post('/update/{id}', 'update')->name('comments.update');
+        Route::delete('/delete/{id}', 'destroy')->name('comments.delete');
+        Route::post('/change-status', 'changeStatus')->name('comments.status');
+    });
+
+    Route::prefix('visatypes')->controller(\App\Http\Controllers\Admin\VisaTypeController::class)->group(function () {
+        Route::get('/', 'index')->name('visatypes.index');
+        Route::get('/create', 'create')->name('visatypes.create');
+        Route::post('/store', 'store')->name('visatypes.store');
+        Route::get('/edit/{id}', 'edit')->name('visatypes.edit');
+        Route::post('/update/{id}', 'update')->name('visatypes.update');
+        Route::delete('/delete/{id}', 'destroy')->name('visatypes.delete');
+        Route::post('/change-status', 'changeStatus')->name('visatypes.status');
+    });
+
 
 
 
