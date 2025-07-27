@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Models\Area;
 use App\Models\City;
-use App\Models\Company;
 use App\Models\Country;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -27,7 +26,7 @@ class UserController extends Controller
         $countries = Country::all();
         $roles = Role::all();
 
-        return view('template.admin.users.create_and_edit', compact('user', 'cities', 'countries', 'companies', 'roles'));
+        return view('template.admin.users.create_and_edit', compact('user', 'cities', 'countries', 'roles'));
     }
 
     public function store(UserRequest $request)
@@ -83,23 +82,6 @@ class UserController extends Controller
             $data['is_blocked'] = 0;
         }
         $user->update($data);
-
-        if ($request->has('addresses')) {
-            $existingAddressIds = collect($request->addresses)->pluck('id')->filter();
-            $user->addresses()->whereNotIn('id', $existingAddressIds)->delete();
-
-            foreach ($request->addresses as $addressData) {
-                $addressId = $addressData['id'] ?? null;
-                $addressData['status'] = 1;
-
-                if ($addressId) {
-                    $user->addresses()->find($addressId)->update($addressData);
-                } else {
-                    $addressData['user_id'] = $user->id;
-                    $user->addresses()->create($addressData);
-                }
-            }
-        }
 
         return redirect()->route('admin.users.index')->with('success', __('messages.UpdatedMessage'));
     }

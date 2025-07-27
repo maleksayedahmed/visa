@@ -33,12 +33,18 @@ class VisaController extends Controller
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required|string',
-        //     'description' => 'required|string',
-        //     'slug' => 'required|string',  // Ensure slug is required
-        //     'status' => 'boolean',
-        // ]);
+        $request->validate([
+            'name.en' => 'required|string|max:255',
+            'name.ar' => 'required|string|max:255',
+            'description.en' => 'required|string',
+            'description.ar' => 'required|string',
+            'visa_type.en' => 'required|string|max:255',
+            'visa_type.ar' => 'required|string|max:255',
+            'slug' => 'required|string|unique:visas,slug',
+            'status' => 'boolean',
+            'cost' => 'required|numeric',
+            'country_id' => 'required|exists:countries,id',
+        ]);
 
         $this->visaService->store($request->all());
         return redirect()->route('admin.visas.index')->with('success', __('messages.AddedMessage'));
@@ -55,12 +61,18 @@ class VisaController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'slug' => 'required|string',  // Ensure slug is required
+            'name.en' => 'required|string|max:255',
+            'name.ar' => 'required|string|max:255',
+            'description.en' => 'required|string',
+            'description.ar' => 'required|string',
+            'visa_type.en' => 'required|string|max:255',
+            'visa_type.ar' => 'required|string|max:255',
+            'slug' => 'required|string|unique:visas,slug,' . $id,
             'status' => 'boolean',
             'cost' => 'required|numeric',
+            'country_id' => 'required|exists:countries,id',
         ]);
+        
         $this->visaService->update($request->all(), $id);
         return redirect()->route('admin.visas.index')->with('success', __('messages.UpdatedMessage'));
     }

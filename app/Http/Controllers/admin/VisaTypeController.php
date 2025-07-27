@@ -30,7 +30,8 @@ class VisaTypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|unique:visa_types,name|max:255',
+            'name.en' => 'required|string|max:255',
+            'name.ar' => 'required|string|max:255',
         ]);
 
         $this->visaTypeService->store($request->all()); // Use service to store the data
@@ -45,6 +46,11 @@ class VisaTypeController extends Controller
 
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'name.en' => 'required|string|max:255',
+            'name.ar' => 'required|string|max:255',
+        ]);
+
         $this->visaTypeService->update($request->all(), $id);
         return redirect()->route('admin.visatypes.index')->with('success', __('messages.UpdatedMessage'));
 

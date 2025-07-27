@@ -11,10 +11,10 @@
                             <i class="fas fa-passport"></i>
                         </div>
                         <div class="counter-content">
-                            <h3>Visa Categories</h3>
+                            {{-- <h3>{{ __('translation.visa_categories') }}</h3> --}}
                             <div class="d-flex align-items-center justify-content-center">
                                 <span class="counter-value" data-toggle="counter-up">31</span>
-                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">+</h4>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">{{ __('translation.plus') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -25,10 +25,11 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="counter-content">
-                            <h3>Team Members</h3>
+                            <h3>{{ __('translation.team_members') }}</h3>
                             <div class="d-flex align-items-center justify-content-center">
                                 <span class="counter-value" data-toggle="counter-up">377</span>
-                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">+</h4>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">
+                                    {{ __('translation.plus') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -39,10 +40,11 @@
                             <i class="fas fa-user-check"></i>
                         </div>
                         <div class="counter-content">
-                            <h3>Visa Process</h3>
+                            <h3>{{ __('translation.visa_process') }}</h3>
                             <div class="d-flex align-items-center justify-content-center">
                                 <span class="counter-value" data-toggle="counter-up">4.9</span>
-                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">K</h4>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">
+                                    {{ __('translation.thousand') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -53,10 +55,11 @@
                             <i class="fas fa-handshake"></i>
                         </div>
                         <div class="counter-content">
-                            <h3>Success Rates</h3>
+                            <h3>{{ __('translation.success_rates') }}</h3>
                             <div class="d-flex align-items-center justify-content-center">
                                 <span class="counter-value" data-toggle="counter-up">98</span>
-                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">%</h4>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">
+                                    {{ __('translation.percent') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -72,13 +75,10 @@
         <div class="container py-5">
             <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="sub-style">
-                    <h5 class="sub-title text-primary px-3">Visa Categories</h5>
+                    <h5 class="sub-title text-primary px-3">{{ __('translation.visa_categories') }}</h5>
                 </div>
-                <h1 class="display-5 mb-4">Enabling Your Immigration Successfully</h1>
-                <p class="mb-0">Navigating the complexities of immigration can be challenging, but we're here to make the
-                    process smooth and successful. Whether you're looking for a job abroad, expanding your business, or
-                    traveling for diplomatic purposes, we provide expert guidance to help you secure the right visa with
-                    ease.</p>
+                <h1 class="display-5 mb-4">{{ __('translation.enabling_immigration_successfully') }}</h1>
+                <p class="mb-0">{{ __('translation.immigration_description') }}</p>
             </div>
 
             <div class="row g-4">
@@ -90,7 +90,7 @@
                                 <div class="service-img">
                                     <img src="{{ $item->getFirstMedia('category') ? '/media/' . $item->getFirstMedia('category')->id . '/' . $item->getFirstMedia('category')->file_name : '' }}
 "
-                                        class="img-fluid w-100 rounded" alt="Image">
+                                        class="img-fluid w-100 rounded" alt="{{ __('translation.image') }}">
                                 </div>
                                 <div class="service-title">
                                     <div class="service-title-name">
@@ -98,7 +98,7 @@
                                             <a href="#" class="h4 text-white mb-0">{{ $item->name }}</a>
                                         </div>
                                         <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4"
-                                            href="/category/{{ $item->id }}">Explore More</a>
+                                            href="/category/{{ $item->id }}">{{ __('translation.explore_more') }}</a>
                                     </div>
                                     <div class="service-content pb-4">
                                         <a href="#">
@@ -107,7 +107,7 @@
                                         <div class="px-4">
                                             <p class="mb-4">{{ $item->description }}</p>
                                             <a class="btn btn-primary border-secondary rounded-pill py-3 px-5"
-                                                href="/category/{{ $item->id }}">Explore More</a>
+                                                href="/category/{{ $item->id }}">{{ __('translation.explore_more') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -129,12 +129,10 @@
                 <div class="container">
                     <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="sub-style">
-                            <h5 class="sub-title text-primary px-3">Why Choose Us</h5>
+                            <h5 class="sub-title text-primary px-3">{{ __('translation.why_choose_us') }}</h5>
                         </div>
-                        <h1 class="display-5 mb-4">Offer Tailor Made Services That Our Client Requires</h1>
-                        <p class="mb-0">We provide personalized immigration solutions to make your journey smoother and
-                            hassle-free. Our expert team ensures that you get the best assistance for a successful visa
-                            application process, tailored to your specific needs.</p>
+                        <h1 class="display-5 mb-4">{{ __('translation.tailor_made_services') }}</h1>
+                        <p class="mb-0">{{ __('translation.features_description') }}</p>
                     </div>
                     <div class="row g-4 justify-content-center text-center">
                         <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
@@ -143,9 +141,8 @@
                                     <i class="fas fa-dollar-sign fa-4x text-primary"></i>
                                 </div>
                                 <div class="feature-content d-flex flex-column">
-                                    <h5 class="mb-3">Cost-Effective</h5>
-                                    <p class="mb-3">Affordable visa solutions designed to save you time and money while
-                                        ensuring a smooth application process.</p>
+                                    <h5 class="mb-3">{{ __('translation.cost_effective') }}</h5>
+                                    <p class="mb-3">{{ __('translation.cost_effective_description') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -155,9 +152,8 @@
                                     <i class="fab fa-cc-visa fa-4x text-primary"></i>
                                 </div>
                                 <div class="feature-content d-flex flex-column">
-                                    <h5 class="mb-3">Visa Assistance</h5>
-                                    <p class="mb-3">Expert guidance at every step of your visa application, from
-                                        documentation to approval.</p>
+                                    <h5 class="mb-3">{{ __('translation.visa_assistance') }}</h5>
+                                    <p class="mb-3">{{ __('translation.visa_assistance_description') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -167,9 +163,8 @@
                                     <i class="fas fa-atlas fa-4x text-primary"></i>
                                 </div>
                                 <div class="feature-content d-flex flex-column">
-                                    <h5 class="mb-3">Faster Processing</h5>
-                                    <p class="mb-3">We streamline the application process to ensure quicker approvals and
-                                        minimize delays.</p>
+                                    <h5 class="mb-3">{{ __('translation.faster_processing') }}</h5>
+                                    <p class="mb-3">{{ __('translation.faster_processing_description') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -179,9 +174,8 @@
                                     <i class="fas fa-users fa-4x text-primary"></i>
                                 </div>
                                 <div class="feature-content d-flex flex-column">
-                                    <h5 class="mb-3">Direct Interviews</h5>
-                                    <p class="mb-3">We help you prepare for interviews with immigration officers to
-                                        increase your chances of approval.</p>
+                                    <h5 class="mb-3">{{ __('translation.direct_interviews') }}</h5>
+                                    <p class="mb-3">{{ __('translation.direct_interviews_description') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -199,12 +193,10 @@
                     <div class="section-title text-center wow fadeInUp" data-wow-delay="0.1s"
                         style="margin-bottom: 70px;">
                         <div class="sub-style">
-                            <h5 class="sub-title text-primary px-3">COUNTRIES WE OFFER</h5>
+                            <h5 class="sub-title text-primary px-3">{{ __('translation.countries_we_offer') }}</h5>
                         </div>
-                        <h1 class="display-5 mb-4">Immigration & visa services following Countries</h1>
-                        <p class="mb-0">We provide expert immigration and visa services for various destinations
-                            worldwide. Our dedicated team ensures a seamless and stress-free process, helping you secure the
-                            right visa for your needs.</p>
+                        <h1 class="display-5 mb-4">{{ __('translation.immigration_visa_services') }}</h1>
+                        <p class="mb-0">{{ __('translation.countries_description') }}</p>
                     </div>
                     <div class="row g-4 text-center">
 
@@ -214,12 +206,12 @@
                                     <div class="rounded overflow-hidden">
                                         <img src="{{ $item->getFirstMedia('country_cover') ? '/media/' . $item->getFirstMedia('country_cover')->id . '/' . $item->getFirstMedia('country_cover')->file_name : '' }}
 "
-                                            class="img-fluid w-100 rounded" alt="Image">
+                                            class="img-fluid w-100 rounded" alt="{{ __('translation.image') }}">
                                     </div>
                                     <div class="country-flag">
                                         <img src="{{ $item->getFirstMedia('country') ? '/media/' . $item->getFirstMedia('country')->id . '/' . $item->getFirstMedia('country')->file_name : '' }}
 "
-                                            class="img-fluid rounded-circle" alt="Image">
+                                            class="img-fluid rounded-circle" alt="{{ __('translation.image') }}">
                                     </div>
                                     <div class="country-name">
                                         <a href="/countries/{{ $item->id }}"
@@ -233,7 +225,7 @@
 
                         <div class="col-12">
                             <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp"
-                                data-wow-delay="0.1s" href="/countries">More Countries</a>
+                                data-wow-delay="0.1s" href="/countries">{{ __('translation.more_countries') }}</a>
                         </div>
                     </div>
                 </div>
@@ -246,18 +238,15 @@
                 <div class="container py-5">
                     <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="sub-style">
-                            <h5 class="sub-title text-primary px-3">OUR CLIENTS REVIEWS</h5>
+                            <h5 class="sub-title text-primary px-3">{{ __('translation.our_clients_reviews') }}</h5>
                         </div>
-                        <h1 class="display-5 mb-4">What Our Clients Say</h1>
-                        <p class="mb-0">We take pride in delivering exceptional visa and immigration services. Hear what
-                            our satisfied clients have to say about their experience with us.</p>
+                        <h1 class="display-5 mb-4">{{ __('translation.what_our_clients_say') }}</h1>
+                        <p class="mb-0">{{ __('translation.testimonials_description') }}</p>
                     </div>
                     <div class="owl-carousel testimonial-carousel wow zoomInDown" data-wow-delay="0.2s">
                         <div class="testimonial-item">
                             <div class="testimonial-content p-4 mb-5">
-                                <p class="fs-5 mb-0">The visa application process was incredibly smooth, thanks to their
-                                    expert guidance. They handled all the paperwork efficiently, and I got my visa approved
-                                    without any hassle. Highly recommended!</p>
+                                <p class="fs-5 mb-0">{{ __('translation.testimonial_1_text') }}</p>
                                 <div class="d-flex justify-content-end">
                                     <i class="fas fa-star' text-secondary"></i>
                                     <i class="fas fa-star' text-secondary"></i>
@@ -269,19 +258,18 @@
                             <div class="d-flex">
                                 <div class="rounded-circle me-4" style="width: 100px; height: 100px;">
                                     <img class="img-fluid rounded-circle"
-                                        src="{{ asset('assets/img/testimonial-1.jpg') }}" alt="img">
+                                        src="{{ asset('assets/img/testimonial-1.jpg') }}"
+                                        alt="{{ __('translation.img') }}">
                                 </div>
                                 <div class="my-auto">
-                                    <h5>Emily Davis</h5>
-                                    <p class="mb-0">Business Owner</p>
+                                    <h5>{{ __('translation.testimonial_1_name') }}</h5>
+                                    <p class="mb-0">{{ __('translation.testimonial_1_title') }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="testimonial-item">
                             <div class="testimonial-content p-4 mb-5">
-                                <p class="fs-5 mb-0">Professional and reliable service! They provided great support in
-                                    obtaining my business visa, ensuring all documents were in order. A minor delay, but
-                                    overall, a great experience.</p>
+                                <p class="fs-5 mb-0">{{ __('translation.testimonial_2_text') }}</p>
                                 <div class="d-flex justify-content-end">
                                     <i class="fas fa-star text-secondary"></i>
                                     <i class="fas fa-star text-secondary"></i>
@@ -293,19 +281,18 @@
                             <div class="d-flex">
                                 <div class="rounded-circle me-4" style="width: 100px; height: 100px;">
                                     <img class="img-fluid rounded-circle"
-                                        src="{{ asset('assets/img/testimonial-2.jpg') }}" alt="img">
+                                        src="{{ asset('assets/img/testimonial-2.jpg') }}"
+                                        alt="{{ __('translation.img') }}">
                                 </div>
                                 <div class="my-auto">
-                                    <h5>lily Smith</h5>
-                                    <p class="mb-0">Student</p>
+                                    <h5>{{ __('translation.testimonial_2_name') }}</h5>
+                                    <p class="mb-0">{{ __('translation.testimonial_2_title') }}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="testimonial-item">
                             <div class="testimonial-content p-4 mb-5">
-                                <p class="fs-5 mb-0">I was worried about getting my student visa, but their team made it
-                                    easy. They walked me through every step and provided excellent advice. I’m now studying
-                                    abroad stress-free!</p>
+                                <p class="fs-5 mb-0">{{ __('translation.testimonial_3_text') }}</p>
                                 <div class="d-flex justify-content-end">
                                     <i class="fas fa-star text-secondary"></i>
                                     <i class="fas fa-star text-secondary"></i>
@@ -317,11 +304,12 @@
                             <div class="d-flex">
                                 <div class="rounded-circle me-4" style="width: 100px; height: 100px;">
                                     <img class="img-fluid rounded-circle"
-                                        src="{{ asset('assets/img/testimonial-3.jpg') }}" alt="img">
+                                        src="{{ asset('assets/img/testimonial-3.jpg') }}"
+                                        alt="{{ __('translation.img') }}">
                                 </div>
                                 <div class="my-auto">
-                                    <h5>Michael Lee</h5>
-                                    <p class="mb-0">Software Engineer</p>
+                                    <h5>{{ __('translation.testimonial_3_name') }}</h5>
+                                    <p class="mb-0">{{ __('translation.testimonial_3_title') }}</p>
                                 </div>
                             </div>
                         </div>

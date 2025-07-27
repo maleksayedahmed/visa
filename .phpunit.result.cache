@@ -1,0 +1,1 @@
+{"version":1,"defects":[],"times":{"Tests\\Feature\\MultilingualVisaTest::test_visa_type_can_store_multilingual_data":0.271,"Tests\\Feature\\MultilingualVisaTest::test_visa_can_store_multilingual_data":0.009,"Tests\\Feature\\MultilingualVisaTest::test_visa_type_displays_correct_language":0.004,"Tests\\Feature\\MultilingualVisaTest::test_visa_displays_correct_language":0.004}}

@@ -336,5 +336,6 @@ return [
     'tags' => 'Tags',
     'slug' => 'Tags',
     'settings' => 'Settings',
+    'delete_confirmation' => 'Are you sure you want to delete this item?',
 
 ];

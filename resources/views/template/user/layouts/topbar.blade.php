@@ -10,9 +10,9 @@
         <div class="col-lg-3 row-cols-1 text-center mb-2 mb-lg-0">
 
             {{-- <div class="d-inline-flex align-items-center" style="height: 45px;">
-                <a href="#" class="text-muted me-2">Help</a><small> / </small>
-                <a href="#" class="text-muted mx-2">Support</a><small> / </small>
-                <a href="#" class="text-muted ms-2">Contact</a>
+                <a href="#" class="text-muted me-2">{{ __('translation.help') }}</a><small> / </small>
+                <a href="#" class="text-muted mx-2">{{ __('translation.support') }}</a><small> / </small>
+                <a href="#" class="text-muted ms-2">{{ __('translation.contact') }}</a>
             </div> --}}
         </div>
         <div class="col-lg-4 text-center text-lg-end">
