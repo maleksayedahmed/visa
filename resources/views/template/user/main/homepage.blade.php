@@ -11,10 +11,11 @@
                             <i class="fas fa-passport"></i>
                         </div>
                         <div class="counter-content">
-                            {{-- <h3>{{ __('translation.visa_categories') }}</h3> --}}
+                            <h3>{{ __('translation.visa_categories') }}</h3>
                             <div class="d-flex align-items-center justify-content-center">
                                 <span class="counter-value" data-toggle="counter-up">31</span>
-                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">{{ __('translation.plus') }}</h4>
+                                <h4 class="text-secondary mb-0" style="font-weight: 600; font-size: 25px;">
+                                    {{ __('translation.plus') }}</h4>
                             </div>
                         </div>
                     </div>
@@ -82,15 +83,14 @@
             </div>
 
             <div class="row g-4">
-
-                @foreach ($categories as $item)
-                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                @foreach ($services as $item)
+                    <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s"
+                        style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                         <div class="service-item">
                             <div class="service-inner">
                                 <div class="service-img">
-                                    <img src="{{ $item->getFirstMedia('category') ? '/media/' . $item->getFirstMedia('category')->id . '/' . $item->getFirstMedia('category')->file_name : '' }}
-"
-                                        class="img-fluid w-100 rounded" alt="{{ __('translation.image') }}">
+                                    <img src="{{ $item->getFirstMedia('visatype_cover') ? '/media/' . $item->getFirstMedia('visatype_cover')->id . '/' . $item->getFirstMedia('visatype_cover')->file_name : '' }}"
+                                        class="img-fluid w-100 rounded" alt="Image">
                                 </div>
                                 <div class="service-title">
                                     <div class="service-title-name">
@@ -98,16 +98,15 @@
                                             <a href="#" class="h4 text-white mb-0">{{ $item->name }}</a>
                                         </div>
                                         <a class="btn bg-light text-secondary rounded-pill py-3 px-5 mb-4"
-                                            href="/category/{{ $item->id }}">{{ __('translation.explore_more') }}</a>
+                                            href="/visas">Explore More</a>
                                     </div>
                                     <div class="service-content pb-4">
                                         <a href="#">
                                             <h4 class="text-white mb-4 py-3">{{ $item->name }}</h4>
                                         </a>
                                         <div class="px-4">
-                                            <p class="mb-4">{{ $item->description }}</p>
                                             <a class="btn btn-primary border-secondary rounded-pill py-3 px-5"
-                                                href="/category/{{ $item->id }}">{{ __('translation.explore_more') }}</a>
+                                                href="/visas">Explore More</a>
                                         </div>
                                     </div>
                                 </div>
@@ -115,10 +114,6 @@
                         </div>
                     </div>
                 @endforeach
-
-
-
-
             </div>
             <!-- Services End -->
 

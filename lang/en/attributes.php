@@ -245,6 +245,7 @@ return [
     'update' => 'Update',
     'delete' => 'Delete',
     'actions' => 'Actions',
+    'details' => 'See Details',
 
 'create' => 'Create',
     'edit' => 'Edit',

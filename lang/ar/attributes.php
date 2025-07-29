@@ -157,6 +157,7 @@ return [
     'select_type' => 'اختر نوع',
     'select_time_type' => 'اختر نوع الوقت',
     'actions' => 'الإجراءات',
+    'details' => ' عرض التفاصيل',
 
     // User attributes
     'users' => 'المستخدمون',

@@ -4,10 +4,10 @@
 
 <div class="container-fluid bg-breadcrumb">
     <div class="container text-center py-5" style="max-width: 900px;">
-        <h3 class="text-white display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;">Our Countries Offer</h3>
+        <h3 class="text-white display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;">{{ __('translation.countries') }}</h3>
         <ol class="breadcrumb justify-content-center text-white mb-0 wow fadeInDown" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">
-            <li class="breadcrumb-item"><a href="index.html" class="text-white">Home</a></li>
-            <li class="breadcrumb-item active text-secondary">Countries</li>
+            <li class="breadcrumb-item"><a href="index.html" class="text-white">{{ __('translation.home') }}</a></li>
+            <li class="breadcrumb-item active text-secondary">{{ __('translation.countries') }}</li>
         </ol>
     </div>
 </div>

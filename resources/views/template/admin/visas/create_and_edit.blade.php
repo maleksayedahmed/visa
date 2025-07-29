@@ -96,22 +96,36 @@
 
                                     <div class="mb-3 col-md-6">
                                         <label for="visa_type[en]">@lang('attributes.visa_type_en')</label>
-                                        <input type="text" class="form-control" name="visa_type[en]" id="visa_type[en]"
-                                            placeholder="@lang('attributes.visa_type_en')"
-                                            value="{{ old('visa_type.en', $item->getTranslation('visa_type', 'en')) }}">
+                                        <select class="form-control" name="visa_type[en]" id="visa_type[en]">
+                                            <option value="">@lang('attributes.select_option')</option>
+                                            @foreach($visaTypes as $type)
+                                                <option value="{{ $type->getTranslation('name', 'en') }}"
+                                                    {{ old('visa_type.en', $item->getTranslation('visa_type', 'en')) == $type->getTranslation('name', 'en') ? 'selected' : '' }}>
+                                                    {{ $type->getTranslation('name', 'en') }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                         @error('visa_type.en')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    
                                     <div class="mb-3 col-md-6">
                                         <label for="visa_type[ar]">@lang('attributes.visa_type_ar')</label>
-                                        <input type="text" class="form-control" name="visa_type[ar]" id="visa_type[ar]"
-                                            placeholder="@lang('attributes.visa_type_ar')"
-                                            value="{{ old('visa_type.ar', $item->getTranslation('visa_type', 'ar')) }}">
+                                        <select class="form-control" name="visa_type[ar]" id="visa_type[ar]">
+                                            <option value="">@lang('attributes.select_option')</option>
+                                            @foreach($visaTypes as $type)
+                                                <option value="{{ $type->getTranslation('name', 'ar') }}"
+                                                    {{ old('visa_type.ar', $item->getTranslation('visa_type', 'ar')) == $type->getTranslation('name', 'ar') ? 'selected' : '' }}>
+                                                    {{ $type->getTranslation('name', 'ar') }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                         @error('visa_type.ar')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                                                        
 
 
                                     <div class="mb-3 col-md-6">

@@ -1,7 +1,7 @@
 @extends('template.user.layouts.app')
 
 @section('content')
-    <h2 class="category-title">Blogs</h2>
+    <h2 class="category-title">{{ __('translation.blogs') }}</h2>
     <div class="cards-container">
         @foreach ($blogs as $blog)
             <div class="card">
