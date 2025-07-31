@@ -74,6 +74,8 @@ return [
     // Carousel
     'previous' => "Previous",
     'next' => "Next",
+    'show_more' => "Show More",
+    'show_less' => "Show Less",
     
     // Footer
     'contact_info' => "Contact Info",

@@ -74,6 +74,8 @@ return [
     // Carousel
     'previous' => "السابق",
     'next' => "التالي",
+    'show_more' => "عرض المزيد",
+    'show_less' => "عرض أقل",
     
     // Footer
     'contact_info' => "معلومات الاتصال",
