@@ -1,26 +1,42 @@
  @extends('template.user.layouts.app')
 
 @section('content')
-    {{-- <h2 class="category-title">{{$visa->name}}</h2>
-    <div class="cards-container">
-        @foreach ($visas as $visa)
-            @if ($city->status == 1)
-            <div class="card">
-                <div class="card-body">
-                <h5 class="card-title">{{ $city->name }}</h5>
-                </div>
-            </div>
-            @endif
-        @endforeach
-    </div> --}}
-
     <div class="container-fluid features overflow-hidden py-5">
             <div class="container py-5">
-                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                <div class="section-title text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="display-5 fw-bold mb-4 text-white">{{ $visa->name }}</h1>
+                    <p class="lead text-light mb-5">{{ $visa->description }}</p>
 
-                    <h1 class="display-5 mb-4">{{$visa->name}}</h1>
-                    <p class="mb-0">{{$visa->description}}</p>
+                    <div class="visa-country-info mx-auto p-4 px-5 rounded-4 shadow-lg border position-relative animate-fade" 
+                        style="max-width: 600px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(12px); transition: all 0.4s ease;">
+                        <div class="mb-4 text-white d-flex flex-column gap-4">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-globe2 me-3 fs-3 text-primary"></i>
+                                <div>
+                                    <div class="fw-bold fs-5">Country ISO</div>
+                                    <div class="fs-5 fw-semibold text-white">{{ $visa->country->country_iso }}</div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-currency-exchange me-3 fs-3 text-warning"></i>
+                                <div>
+                                    <div class="fw-bold fs-5">Currency</div>
+                                    <div class="fs-5 fw-semibold text-white">{{ $visa->country->currency_name }} ({{ $visa->country->currency_iso }})</div>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-telephone-forward me-3 fs-3 text-success"></i>
+                                <div>
+                                    <div class="fw-bold fs-5">Country Code</div>
+                                    <div class="fs-5 fw-semibold text-white">{{ $visa->country->country_code }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="row g-4 justify-content-center text-center">
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                         <div class="feature-item text-center p-4">

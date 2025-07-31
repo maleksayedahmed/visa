@@ -26,7 +26,7 @@ return new class extends Migration
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
             $table->bigIncrements('id'); // permission id
-            $table->string('name');       // For MySQL 8.0 use string('name', 125);
+            $table->string('name', 125);       // For MySQL 8.0 use string('name', 125);
             $table->integer('type')->nullable();
             $table->longText('title')->nullable();       // For MySQL 8.0 use string('name', 125);
 
@@ -45,7 +45,7 @@ return new class extends Migration
                 ->on('permissions')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('guard_name'); // For MySQL 8.0 use string('guard_name', 125);
+            $table->string('guard_name', 125); // For MySQL 8.0 use string('guard_name', 125);
             $table->timestamps();
 
             $table->unique(['name', 'guard_name']);

@@ -1234,3 +1234,55 @@ a.btn.btn-primary:hover {
     color: #003A66;
     border:1px solid #fff !important;
 }
+
+.section-title {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #003A66, #005C99);
+    border-radius: 16px;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.section-title:hover {
+    transform: translateY(-5px);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: bottom 0.5s ease;
+    z-index: 1;
+}
+
+.section-title:hover::after {
+    bottom: 0;
+}
+
+.section-title > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+.animate-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
