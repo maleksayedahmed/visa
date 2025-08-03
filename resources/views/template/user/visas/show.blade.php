@@ -177,15 +177,15 @@
     {{-- CRITICAL CSS OVERRIDE BLOCK TO FIX GLOBAL STYLESHEET CONFLICTS --}}
     <style>
         /*
-                    * CARD LAYOUT FIX: Reset width to allow Bootstrap's grid to work.
-                    */
+                        * CARD LAYOUT FIX: Reset width to allow Bootstrap's grid to work.
+                        */
         .visa-details-page .card {
             width: auto !important;
         }
 
         /*
-                    * CARD BODY ALIGNMENT FIX: Reset display and text alignment for proper layout.
-                    */
+                        * CARD BODY ALIGNMENT FIX: Reset display and text alignment for proper layout.
+                        */
         .visa-details-page .card-body {
             display: block !important;
             text-align: left !important;
@@ -193,8 +193,8 @@
         }
 
         /*
-                    * TEXT COLOR FIX: Restore the correct color for muted text.
-                    */
+                        * TEXT COLOR FIX: Restore the correct color for muted text.
+                        */
         .visa-details-page .text-muted {
             color: #6c757d !important;
         }
@@ -297,13 +297,14 @@
                         <div class="card-body p-4">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <a href="https://wa.me/+970567067187" class="btn btn-success btn-lg w-100">
+                                    <a href="https://wa.me/{{ getSetting()->whatsapp }}"
+                                        class="btn btn-success btn-lg w-100">
                                         <i class="fab fa-whatsapp me-2"></i>
                                         {{ __('translation.contact_whatsapp') }}
                                     </a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="tel:+970567067187" class="btn btn-primary btn-lg w-100">
+                                    <a href="tel:{{ getSetting()->mobile_number }}" class="btn btn-primary btn-lg w-100">
                                         <i class="fas fa-phone me-2"></i>
                                         {{ __('translation.call_now') }}
                                     </a>
