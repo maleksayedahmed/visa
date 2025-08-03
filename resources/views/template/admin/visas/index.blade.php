@@ -27,7 +27,8 @@
                                 @if (session('success'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         {{ session('success') }}
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
                                     </div>
                                 @endif
 
@@ -50,7 +51,7 @@
                                                 <td>{{ $loop->iteration ?? '' }}</td>
                                                 <td>{{ $visa->name ?? '' }}</td>
                                                 <td>{{ $visa->country->name ?? '' }}</td>
-                                                <td>{{ $visa->visa_type ?? '' }}</td>
+                                                <td>{{ $visa->visaType->name ?? '' }}</td>
                                                 <td>{{ $visa->description ?? '' }}</td>
                                                 <td><input id="checkbox-1" type="checkbox" name="status"
                                                         @if ($visa->status == 1) checked @endif
@@ -108,7 +109,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         @endforeach
                                     </tbody>
                                 </table>

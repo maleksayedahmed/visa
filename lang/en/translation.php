@@ -14,6 +14,18 @@ return [
     'enabling_immigration_successfully' => "Enabling Your Immigration Successfully",
     'immigration_description' => "Navigating the complexities of immigration can be challenging, but we're here to make the process smooth and successful. Whether you're looking for a job abroad, expanding your business, or traveling for diplomatic purposes, we provide expert guidance to help you secure the right visa with ease.",
     'explore_more' => "Explore More",
+    'explore_visas' => "Explore Visas",
+    'view_all_visa_types' => "View All Visa Types",
+    'visa_type_description' => "Professional visa services tailored to your specific needs and requirements.",
+    'secure_process' => "Secure Process",
+    'featured_visas' => "FEATURED VISAS",
+    'popular_visa_services' => "Popular Visa Services",
+    'featured_visas_description' => "Discover our most popular visa services that have helped thousands of clients achieve their immigration goals successfully.",
+    'starting_from' => "Starting from",
+    'fast_processing' => "Fast Processing",
+    'guaranteed_approval' => "Guaranteed Approval",
+    'view_details' => "View Details",
+    'view_all_visas' => "View All Visas",
     
     // Features Section
     'why_choose_us' => "Why Choose Us",
@@ -130,5 +142,54 @@ return [
     
     // Lorem Ipsum placeholder text
     'lorem_ipsum_description' => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    
+    // Featured Visas Section
+    'featured_visas' => "FEATURED VISAS",
+    'popular_visa_services' => "Popular Visa Services",
+    'featured_visas_description' => "Discover our most popular visa services with competitive prices and fast processing times. Choose from a wide range of options tailored to your needs.",
+    'starting_from' => "Starting from",
+    'fast_processing' => "Fast Processing",
+    'guaranteed_approval' => "Guaranteed Approval",
+    'view_details' => "View Details",
+    'view_all_visas' => "View All Visas",
+    
+    // Visa Details Page
+    'contact_whatsapp' => "Contact via WhatsApp",
+    'call_now' => "Call Now",
+    'visa_summary' => "Visa Summary",
+    'visa_type' => "Visa Type",
+    'country' => "Country",
+    'price' => "Price",
+    'status' => "Status",
+    'available' => "Available",
+    'country_info' => "Country Information",
+    'country_iso' => "Country ISO",
+    'currency' => "Currency",
+    'country_code' => "Country Code",
+    'related_visas' => "Related Visas",
+    
+    // Visa Listing Page
+    'all_visa_services' => "All Visa Services",
+    'visa_listing_description' => "Explore our comprehensive range of visa services for different countries and purposes. Find the perfect visa solution for your needs.",
+    
+    // Visa Details Page - New Keys
+    'visa_details' => "Visa Details",
+    'no_description_available' => "No description available",
+    'requirements' => "Requirements",
+    'required_documents' => "Required Documents",
+    'passport_valid_8_months' => "Passport valid for at least 8 months",
+    'personal_photo' => "Personal photo",
+    'completed_application' => "Completed application form",
+    'processing_time' => "Processing Time",
+    'typical_processing' => "Typical processing time",
+    'days' => "days",
+    'processing_may_vary' => "Processing time may vary based on individual circumstances",
+    'contact_us' => "Contact Us",
+    'visa_pricing' => "Visa Pricing",
+    'all_fees_included' => "All fees included",
+    'no_hidden_costs' => "No hidden costs",
+    'transparent_pricing' => "Transparent pricing",
+    'duration' => "Duration",
+    'varies_by_type' => "Varies by type",
 
 ];

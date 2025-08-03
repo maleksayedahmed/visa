@@ -17,7 +17,7 @@ class Visa extends Model implements HasMedia
         'slug',
         'description',
         'country_id',
-        'visa_type',
+        'visa_type_id',
         'cost',
         'status',
         'created_by',
@@ -25,7 +25,7 @@ class Visa extends Model implements HasMedia
         'deleted_by'
     ];
 
-    public $translatable = ['name', 'description','visa_type' ];
+    public $translatable = ['name', 'description'];
 
 
     public function country()
@@ -34,8 +34,12 @@ class Visa extends Model implements HasMedia
     }
 
     public function visaType()
-{
-    return $this->belongsTo(VisaType::class);
-}
+    {
+        return $this->belongsTo(VisaType::class);
+    }
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('visa_image')->singleFile();
+    }
 }

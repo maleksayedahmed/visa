@@ -14,6 +14,18 @@ return [
     'enabling_immigration_successfully' => "تمكين هجرتك بنجاح",
     'immigration_description' => "التعامل مع تعقيدات الهجرة قد يكون صعباً، لكننا هنا لجعل العملية سلسة وناجحة. سواء كنت تبحث عن عمل في الخارج، أو توسيع عملك، أو السفر لأغراض دبلوماسية، نحن نقدم إرشادات خبراء لمساعدتك في الحصول على التأشيرة المناسبة بسهولة.",
     'explore_more' => "استكشف المزيد",
+    'explore_visas' => "استكشف التأشيرات",
+    'view_all_visa_types' => "عرض جميع أنواع التأشيرات",
+    'visa_type_description' => "خدمات تأشيرات احترافية مخصصة لاحتياجاتك ومتطلباتك الخاصة.",
+    'secure_process' => "عملية آمنة",
+    'featured_visas' => "التأشيرات المميزة",
+    'popular_visa_services' => "خدمات التأشيرات الشائعة",
+    'featured_visas_description' => "اكتشف خدمات التأشيرات الأكثر شعبية لدينا التي ساعدت آلاف العملاء في تحقيق أهدافهم في الهجرة بنجاح.",
+    'starting_from' => "يبدأ من",
+    'fast_processing' => "معالجة سريعة",
+    'guaranteed_approval' => "موافقة مضمونة",
+    'view_details' => "عرض التفاصيل",
+    'view_all_visas' => "عرض جميع التأشيرات",
     
     // Features Section
     'why_choose_us' => "لماذا تختارنا",
@@ -130,5 +142,54 @@ return [
     
     // Lorem Ipsum placeholder text
     'lorem_ipsum_description' => "لوريم إيبسوم هو نص شكلي يستخدم في صناعة الطباعة والتنضيد. كان لوريم إيبسوم ولايزال المعيار للنص الشكلي منذ القرن الخامس عشر عندما قامت مطبعة مجهولة برص مجموعة من الأحرف بشكل عشوائي أخذتها من نص، لتكوّن كتيّب بمثابة دليل أو مرجع شكلي لهذه الأحرف.",
+    
+    // Featured Visas Section
+    'featured_visas' => "التأشيرات المميزة",
+    'popular_visa_services' => "خدمات التأشيرات الشائعة",
+    'featured_visas_description' => "اكتشف خدمات التأشيرات الأكثر شعبية لدينا بأسعار تنافسية وأوقات معالجة سريعة. اختر من مجموعة واسعة من الخيارات المصممة لاحتياجاتك.",
+    'starting_from' => "يبدأ من",
+    'fast_processing' => "معالجة سريعة",
+    'guaranteed_approval' => "موافقة مضمونة",
+    'view_details' => "عرض التفاصيل",
+    'view_all_visas' => "عرض جميع التأشيرات",
+    
+    // Visa Details Page
+    'contact_whatsapp' => "تواصل عبر واتساب",
+    'call_now' => "اتصل الآن",
+    'visa_summary' => "ملخص التأشيرة",
+    'visa_type' => "نوع التأشيرة",
+    'country' => "البلد",
+    'price' => "السعر",
+    'status' => "الحالة",
+    'available' => "متاح",
+    'country_info' => "معلومات البلد",
+    'country_iso' => "رمز البلد",
+    'currency' => "العملة",
+    'country_code' => "رمز الاتصال",
+    'related_visas' => "التأشيرات ذات الصلة",
+    
+    // Visa Listing Page
+    'all_visa_services' => "جميع خدمات التأشيرات",
+    'visa_listing_description' => "استكشف مجموعة شاملة من خدمات التأشيرات لمختلف البلدان والأغراض. ابحث عن الحل المثالي للتأشيرة لاحتياجاتك.",
+    
+    // Visa Details Page - New Keys
+    'visa_details' => "تفاصيل التأشيرة",
+    'no_description_available' => "لا يوجد وصف متاح",
+    'requirements' => "المتطلبات",
+    'required_documents' => "المستندات المطلوبة",
+    'passport_valid_8_months' => "جواز سفر صالح لمدة 8 أشهر على الأقل",
+    'personal_photo' => "صورة شخصية",
+    'completed_application' => "استمارة طلب مكتملة",
+    'processing_time' => "وقت المعالجة",
+    'typical_processing' => "وقت المعالجة النموذجي",
+    'days' => "أيام",
+    'processing_may_vary' => "قد يختلف وقت المعالجة حسب الظروف الفردية",
+    'contact_us' => "اتصل بنا",
+    'visa_pricing' => "تسعير التأشيرة",
+    'all_fees_included' => "جميع الرسوم مشمولة",
+    'no_hidden_costs' => "لا توجد تكاليف خفية",
+    'transparent_pricing' => "تسعير شفاف",
+    'duration' => "المدة",
+    'varies_by_type' => "تختلف حسب النوع",
 
 ];

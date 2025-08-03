@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call(PermissionsSeeder::class);
         $this->call(RoleSeeder::class);
-
         $this->call(AdminSeeder::class);
+        $this->call(VisaTypeSeeder::class);
+        $this->call(CountrySeeder::class);
+        $this->call(VisaSeeder::class);
+        $this->call(SettingsSeeder::class);
     }
 }

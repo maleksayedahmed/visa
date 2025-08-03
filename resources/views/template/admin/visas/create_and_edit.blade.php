@@ -82,9 +82,9 @@
                                         <label for="country">@lang('attributes.country')</label>
                                         <select class="form-control" name="country_id" id="country">
                                             <option value="" disabled selected>@lang('attributes.select_country')</option>
-                                            @foreach($countries as $country)
+                                            @foreach ($countries as $country)
                                                 <option value="{{ $country->id }}"
-                                                        {{ old('country_id', $item->country_id) == $country->id ? 'selected' : '' }}>
+                                                    {{ old('country_id', $item->country_id) == $country->id ? 'selected' : '' }}>
                                                     {{ $country->name }}
                                                 </option>
                                             @endforeach
@@ -95,44 +95,27 @@
                                     </div>
 
                                     <div class="mb-3 col-md-6">
-                                        <label for="visa_type[en]">@lang('attributes.visa_type_en')</label>
-                                        <select class="form-control" name="visa_type[en]" id="visa_type[en]">
+                                        <label for="visa_type_id">@lang('attributes.visa_type')</label>
+                                        <select class="form-control" name="visa_type_id" id="visa_type_id">
                                             <option value="">@lang('attributes.select_option')</option>
-                                            @foreach($visaTypes as $type)
-                                                <option value="{{ $type->getTranslation('name', 'en') }}"
-                                                    {{ old('visa_type.en', $item->getTranslation('visa_type', 'en')) == $type->getTranslation('name', 'en') ? 'selected' : '' }}>
-                                                    {{ $type->getTranslation('name', 'en') }}
+                                            @foreach ($visaTypes as $type)
+                                                <option value="{{ $type->id }}"
+                                                    {{ old('visa_type_id', $item->visa_type_id) == $type->id ? 'selected' : '' }}>
+                                                    {{ $type->getTranslation('name', app()->getLocale()) }}
                                                 </option>
                                             @endforeach
                                         </select>
-                                        @error('visa_type.en')
+                                        @error('visa_type_id')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    
-                                    <div class="mb-3 col-md-6">
-                                        <label for="visa_type[ar]">@lang('attributes.visa_type_ar')</label>
-                                        <select class="form-control" name="visa_type[ar]" id="visa_type[ar]">
-                                            <option value="">@lang('attributes.select_option')</option>
-                                            @foreach($visaTypes as $type)
-                                                <option value="{{ $type->getTranslation('name', 'ar') }}"
-                                                    {{ old('visa_type.ar', $item->getTranslation('visa_type', 'ar')) == $type->getTranslation('name', 'ar') ? 'selected' : '' }}>
-                                                    {{ $type->getTranslation('name', 'ar') }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                        @error('visa_type.ar')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                                                        
+
 
 
                                     <div class="mb-3 col-md-6">
                                         <label for="cost">@lang('attributes.cost')</label>
-                                        <input type="text" class="form-control" name="cost"
-                                            id="cost" placeholder="@lang('attributes.cost')"
-                                            value="{{ old('cost', $item->cost) }}">
+                                        <input type="text" class="form-control" name="cost" id="cost"
+                                            placeholder="@lang('attributes.cost')" value="{{ old('cost', $item->cost) }}">
                                         @error('cost')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -140,9 +123,8 @@
 
                                     <div class="mb-3 col-md-6">
                                         <label for="slug">@lang('attributes.slug')</label>
-                                        <input type="text" class="form-control" name="slug"
-                                            id="slug" placeholder="@lang('attributes.slug')"
-                                            value="{{ old('slug', $item->slug) }}">
+                                        <input type="text" class="form-control" name="slug" id="slug"
+                                            placeholder="@lang('attributes.slug')" value="{{ old('slug', $item->slug) }}">
                                         @error('slug')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -154,7 +136,7 @@
                                 <div class="row">
                                     <div class="mb-3 col-md-12">
                                         @if ($item->id)
-                                            <img id="image-preview" src="{{ $item->getFirstMediaUrl('visa') }}"
+                                            <img id="image-preview" src="{{ $item->getFirstMediaUrl('visa_image') }}"
                                                 alt="Current Image"
                                                 style="max-width: 100%; height: auto; margin-bottom: 10px;">
                                         @else
@@ -163,8 +145,8 @@
                                         @endif
                                         <!-- <label for="customFile">Custom File</label> -->
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="customFile" name="photo"
-                                                accept="image/*">
+                                            <input type="file" class="custom-file-input" id="customFile"
+                                                name="photo" accept="image/*">
                                             <label class="custom-file-label" for="customFile">@lang('attributes.choose_visa_image')</label>
                                         </div>
                                         @error('photo')

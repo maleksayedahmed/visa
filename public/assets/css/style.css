@@ -1232,7 +1232,7 @@
 a.btn.btn-primary:hover {
     background-color: #fff;
     color: #003A66;
-    border:1px solid #fff !important;
+    border: 1px solid #fff !important;
 }
 
 .section-title {
@@ -1266,7 +1266,7 @@ a.btn.btn-primary:hover {
     bottom: 0;
 }
 
-.section-title > * {
+.section-title>* {
     position: relative;
     z-index: 2;
 }
@@ -1285,4 +1285,5 @@ a.btn.btn-primary:hover {
         transform: translateY(0);
     }
 }
+
 

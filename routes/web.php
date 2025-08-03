@@ -28,9 +28,7 @@ Route::middleware('locale')->group(function () {
     //     return view('dashboard');
     // })->name('dashboard');
 
-    Route::get('/visas', function () {
-        return view('visas.index');
-    })->name('visas.index');
+
 
     Route::get('/immigration', function () {
         return view('immigration.index');
@@ -63,7 +61,7 @@ Route::middleware('locale')->group(function () {
     Route::get('/category/{id}', [CategoryController::class, 'index'])->name('category.index');
 
     Route::get('/visas', [VisaController::class, 'index'])->name('visas.index');
-    Route::get('/visas/{id}', [VisaController::class, 'show'])->name('visas.show');
+    Route::get('/visas/{slug}', [VisaController::class, 'show'])->name('visas.show');
 
     Route::get('/service', [ServiceController::class, 'index'])->name('service.index');
 

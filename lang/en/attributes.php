@@ -30,8 +30,8 @@ return [
     'description' => 'Description',
     'description_en' => 'Description In English',
     'description_ar' => 'Description In Arabic',
-    'visa_type_ar' => 'Visa Type In Arabic',
-    'visa_type_en' => 'Visa Type In English',
+
+    'visa_type' => 'Visa Type',
     'visatypes' => 'Visa Types',
     'visatype' => 'Visa Type',
     'select_visa_type' => 'Select Visa Type',

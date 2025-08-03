@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Country;
 use App\Models\VisaType;
 use App\Models\Slider;
+use App\Models\Visa;
 
 class HomeController extends Controller
 {
@@ -16,10 +17,11 @@ class HomeController extends Controller
 
     public function index(){
         $sliders = Slider::where('status', 1)->get();
-        $services = VisaType::all();
+        $services = VisaType::take(4)->get(); // Limit to 4 visa types
         $countries = Country::where('status', 1)->get();
+        $visas = Visa::where('status', 1)->with(['country', 'visaType'])->take(4)->get();
         // dd($sliders[0]->getFirstMediaUrl('slider'));
-        return view('template.user.main.homepage' , compact('sliders' , 'services' , 'countries'));
+        return view('template.user.main.homepage' , compact('sliders' , 'services' , 'countries', 'visas'));
         //  return view('template.user.main.homepage' , compact( 'categories' , 'countries'));
     }
 

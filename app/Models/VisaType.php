@@ -22,4 +22,9 @@ class VisaType extends Model implements HasMedia
     {
         $this->addMediaCollection('visatype_cover')->singleFile();
     }
+
+    public function visas()
+    {
+        return $this->hasMany(Visa::class);
+    }
 }

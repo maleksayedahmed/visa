@@ -107,7 +107,7 @@ $visaType->update([
 ### Create/Edit Forms
 The forms now include separate input fields for each language:
 - `name[en]` and `name[ar]` for VisaType
-- `name[en]`, `name[ar]`, `description[en]`, `description[ar]`, `visa_type[en]`, `visa_type[ar]` for Visa
+- `name[en]`, `name[ar]`, `description[en]`, `description[ar]`, `visa_type_id` for Visa
 
 ### Index Views
 The index views automatically display content in the current application locale.

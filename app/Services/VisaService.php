@@ -30,7 +30,7 @@ class VisaService
     {
         $visa = $this->visaRepository->create($data);
         if (isset($data['photo']) && $data['photo']) {
-            $visa->addMediaFromRequest('photo')->toMediaCollection('visa');
+            $visa->addMediaFromRequest('photo')->toMediaCollection('visa_image');
         }
         return $visa;
     }
@@ -45,8 +45,8 @@ class VisaService
         $visa = $this->visaRepository->update($data, $visa);
 
         if (isset($data['photo']) && $data['photo']) {
-            $visa->clearMediaCollection('visa');
-            $visa->addMediaFromRequest('photo')->toMediaCollection('visa');
+            $visa->clearMediaCollection('visa_image');
+            $visa->addMediaFromRequest('photo')->toMediaCollection('visa_image');
         }
     }
     public function destroy($id)

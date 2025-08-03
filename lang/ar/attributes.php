@@ -30,8 +30,8 @@ return [
     'description' => 'الوصف',
     'description_en' => 'الوصف بالإنجليزية',
     'description_ar' => 'الوصف بالعربية',
-    'visa_type_ar' => 'نوع التأشيرة بالعربية',
-    'visa_type_en' => 'نوع التأشيرة بالإنجليزية',
+
+    'visa_type' => 'نوع التأشيرة',
     'visatypes' => 'أنواع التأشيرات',
     'visatype' => 'نوع التأشيرة',
     'select_visa_type' => 'اختر نوع التأشيرة',
